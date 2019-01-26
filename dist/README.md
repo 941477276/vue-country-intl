@@ -5,10 +5,6 @@
 + iso2 code: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 + country code: https://en.wikipedia.org/wiki/List_of_country_calling_codes
 
-## 效果预览
-[https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
-
-
 ## 默认使用(schema=input)
 ```
 <template>
@@ -80,3 +76,5 @@
 ## 事件
 1.`onchange`: 用户手动选择列表项时触发，会传递selected、value给onchange使用
 
+## 效果预览
+[https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
