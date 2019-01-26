@@ -16,7 +16,7 @@
 </template>    
 ```
 效果:
-![schema=input效果](./img/effect.png)
+![schema=input效果](./dist/img/effect.png)
 ## popover弹窗式使用(schema=popover)
 ```
 <template>
@@ -27,7 +27,7 @@
 </template>    
 ```
 效果:
-![schema=popover效果](./img/effect2.png)
+![schema=popover效果](./dist/img/effect2.png)
 
 ## props 属性
 1.`schema`: 展示模式
@@ -46,7 +46,7 @@
 
 5.`disabled`: 是否禁用（数据类型：Boolean）
 
-![showAreaCode与showLabelImg](./img/img1.png)
+![showAreaCode与showLabelImg](./dist/img/img1.png)
 
 6.`showAreaCode`: 输入框中是否显示区号（数据类型：Boolean）
 
