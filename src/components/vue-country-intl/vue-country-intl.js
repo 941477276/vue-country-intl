@@ -543,7 +543,7 @@ export default {
         let resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
         let popoverEle = document.getElementById(this.id + '-popover');
         let referenceEle = document.getElementById(this.id);
-        this._unBindEvent(document, 'click', this._documentBindEvent);
+        this._unBindEvent(document, 'click', this._documentClickEvent);
         this._unBindEvent(window, resizeEvent, this._windowResizeEvent);
         if (this.referenceTrigger) {
           this._unBindEvent(referenceEle, 'click', this._referenceClickEvent);
