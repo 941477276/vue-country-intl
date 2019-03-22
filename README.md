@@ -1,5 +1,6 @@
 # vue-country-intl
 基于vue的手机区号选择、国籍选择组件，兼容pc、移动端。
+Vue-based mobile phone area code selection, nationality selection component, compatible with pc, mobile.
 
 插件支持的国家/地区数据来自：
 + iso2 code: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
