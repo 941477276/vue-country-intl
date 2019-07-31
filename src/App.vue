@@ -14,7 +14,7 @@
       <div class="hr"></div>
 
       <h3 class="mb-10">3、onchange事件</h3>
-      <VueCountryIntl v-model="schemaInput.event" @onchange="onchange"></VueCountryIntl>
+      <VueCountryIntl v-model="schemaInput.event" @onChange="onchange"></VueCountryIntl>
       <h5 class="mt-5">区号：{{schemaInput.event || '--'}}</h5>
       <div class="mb-10" style="font-size: 20px;">
         <code>{{selectedObj}}</code>
@@ -47,7 +47,7 @@
       <div class="hr"></div>
     </div>
 
-    <div class="right">
+    <div class="center">
       <h1>scheme = popover 模式</h1>
       <div class="hr"></div>
       <h3 class="mb-10">1、默认效果(选择手机区号)</h3>
@@ -78,13 +78,29 @@
       <h5 class="mt-5">区号：{{schemaPopover.noSearch || '--'}}</h5>
       <div class="hr"></div>
 
+      <h3 class="mb-10">6、使用元素ID</h3>
+      <button type="button" id="test_elId" @click="useElIdClick">使用元素ID</button>
+      <VueCountryIntl ref="use_elId" schema="popover" v-model="schemaPopover.useElId" el-id="test_elId"></VueCountryIntl>
+      <h5 class="mt-5">区号：{{schemaPopover.noSearch || '--'}}</h5>
+      <div class="hr"></div>
     </div>
 
+    <div class="right">
+      <h1>scheme = modal 模式</h1>
+      <div class="hr"></div>
+      <h3 class="mb-10">1、默认效果(选择手机区号)</h3>
+      <button type="button" @click="schemaModalVisible.default = true">选择手机区号</button>
+      <VueCountryIntl schema="modal" :visible.sync="schemaModalVisible.default" v-model="schemaModal.default"></VueCountryIntl>
+      <h5 class="mt-5">2、区号：{{schemaModal.default || '--'}}</h5>
+      <div class="hr"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import VueCountryIntl from './components/vue-country-intl';
+import VueCountryIntl from './components/vue-country-intl/index.vue';
+/*import VueCountryIntl from '../node_modules/vue-country-intl/vue-country-intl.min';
+import '../node_modules/vue-country-intl/vue-country-intl.css'*/
 
 export default {
   name: 'app',
@@ -105,7 +121,14 @@ export default {
         country: '',
         defaultValue: '+86',
         disableUse: '+86',
-        noSearch: '+86'
+        noSearch: '+86',
+        useElId: '+86'
+      },
+      schemaModal: {
+        default: '+86'
+      },
+      schemaModalVisible: {
+        default: false
       },
       selectedObj: {}
     }
@@ -116,6 +139,10 @@ export default {
   methods: {
     onchange(selected){
       this.selectedObj = selected;
+    },
+    useElIdClick(){
+      console.log(1111)
+      this.$refs.use_elId.show();
     }
   }
 }
@@ -160,13 +187,20 @@ export default {
   }
   .left{
     float: left;
-    width: 50%;
+    width: 33%;
     height: 100%;
     padding: 20px;
   }
+  .center{
+    float: left;
+    width: 33%;
+    height: 100%;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+  }
   .right{
     float: right;
-    width: 50%;
+    width: 33%;
     height: 100%;
     padding: 20px;
     border-left: 1px solid #ccc;
@@ -174,12 +208,14 @@ export default {
 
   @media (max-width: 991px) {
     .left,
-    .right{
+    .right,
+    .center{
       float: none;
       width: 100%;
       height: auto;
     }
-    .right{
+    .right,
+    .center{
       border-top: 1px solid #ccc;
       border-left: none;
     }

@@ -1,82 +1,129 @@
 # vue-country-intl
-基于vue的手机区号选择、国籍选择组件，兼容pc、移动端。
+Vue-based mobile phone area code selection, nationality selection component, compatible with pc, mobile.`vue-country-intl`There are 3 modes（
+input、popover、modal）
 
-插件支持的国家/地区数据来自：
+The country data supported by the plugin comes from:
 + iso2 code: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 + country code: https://en.wikipedia.org/wiki/List_of_country_calling_codes
 
-## 效果预览
+## Effect preview
 [https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
 
+[中文文档](https://941477276.github.io/vue-country-intl/README-CM.md)
 
-## 默认使用(schema=input)
+## Usage
+```
+/*****main.js****/
+import VuCountryIntl from 'vue-country-intl';
+// import css
+import 'vue-country-intl/lib/vue-country-intl.css'
+// Global registration component
+Vue.component(VuCountryIntl.name, VuCountryIntl);
+
+/*****Used in components****/
+<template>
+    <vue-country-intl v-model="countryCode"></vue-country-intl>
+</template>
+```
+
+## schema=input(default)
 ```
 <template>
     <VueCountryIntl v-model="phoneCountry"></VueCountryIntl>
 </template>    
 ```
-效果:
-![schema=input效果](dist/img/effect.png)
-## popover弹窗式使用(schema=popover)
+effect:
+
+![schema=input效果](./src/assets/schema_input.gif)
+
+## schema=popover(popover)
 ```
 <template>
-    <VueCountryIntl schema="popover" v-model="phoneCountry">
-        <!-- slot至关重要 -->
-        <button type="button" slot="reference">选择手机区号</button>
+    <button type="button" id="my_reference">Select phone area code</button>
+    <VueCountryIntl schema="popover" elId="my_reference" v-model="phoneCountry">
     </VueCountryIntl>
 </template>    
 ```
-效果:
-![schema=popover效果](dist/img/effect2.png)
+```
+<template>
+    <VueCountryIntl schema="popover" v-model="phoneCountry">
+        <button type="button" slot="reference">Select phone area code</button>
+    </VueCountryIntl>
+</template>    
+```
+effect:
 
-## props 属性
-1.`schema`: 展示模式
+![schema=popover效果](./src/assets/schema_popover.gif)
 
-+ input: 显示为一个input输入框（默认）
-+ popover: popover弹窗形式
+## schema=modal
+```
+<template>
+    <VueCountryIntl schema="modal" v-model="phoneCountry"></VueCountryIntl>
+</template>    
+```
+effect:
 
-2.`type`: 值类型
+![schema=modal效果](./src/assets/schema_modal.gif)
 
-+ phone: 表示选择手机区号
-+ country: 表示选择国籍
+## props
+1.`schema`: Display mode
 
-3.`placeholder`: schema=input时输入框的placeholder
++ input: Display as an `input` input box (default)
++ popover: Popover pop-up form
++ modal: Modal box pop-up form
 
-4.`searchAble`: 是否可以搜索（数据类型：Boolean）
+2.`type`: Value type
 
-5.`disabled`: 是否禁用（数据类型：Boolean）
++ phone: To select the area code
++ country: Select nationality
 
-![showAreaCode与showLabelImg](dist/img/img1.png)
+3.`placeholder`: The placeholder of the input box when `schema=input`
 
-6.`showAreaCode`: 输入框中是否显示区号（数据类型：Boolean）
+4.`searchAble`: Whether it can be searched (data type: Boolean)
 
-7.`showLabelImg`: 输入框中是否显示图片（数据类型：Boolean）
+5.`disabled`: Whether to disable (data type: Boolean)
 
-8.`onlyValue`: 是否只显示选中的值，而不显示国际名称（数据类型：Boolean）
+6.`showAreaCode`: Whether to display the area code in the input box (data type: Boolean)
 
-9.`listZIndex`: 列表的层级（数据类型：Number）
+![showAreaCode与showLabelImg](./src/assets/img1.png)
 
-10.`maxHeight`: 列表最大高度，pc默认350px，移动端默认240px（数据类型：Number）
+7.`showLabelImg`: Whether to display an image in the input box (data type: Boolean)
 
-11.`selectedText`: 列表中选中项右侧的文案，默认 Selected
+8.`onlyValue`: Whether to display only the selected value without displaying the nationality name (data type: Boolean)
 
-12.`showSelectedText`: 列表项被选中时是否显示右侧 'Selected' 文案，默认 true （数据类型：Boolean）
+9.`listZIndex`: z-index for list (data type：Number)
 
-13.`trigger`: 触发方式，目前只支持click。只有在`schema=popover`时有效。
+10.`maxHeight`: The maximum height of the list, pc default 350px, mobile default 240px (data type：Number)
 
-14.`offsetTop`: popover弹窗距离参照元素的距离。默认为10。只有在`schema=popover`时有效（数据类型：Number）
+11.`selectedText`: The copy to the right of the selected item in the list, the default is Selected (data type：String)
 
-15.`popoverClass`: popover弹窗额外class。只有在`schema=popover`时有效
+12.`showSelectedText`: Whether the right side of the 'Selected' file is displayed when the list item is selected, the default is true (data type: Boolean)
 
-16.`referenceTrigger`: 点击reference是否可以显示popover弹窗，默认为true。只有在`schema=popover`时有效（数据类型：Boolean）
+13.`readonly`: Read-only, default `false` (data type: Boolean)
 
-## 可用方法(method)
-1.`show(flag)`: 显示或隐藏列表
+14.`offsetTop`: The distance from the popover popup window to the reference element. The default is 10.Only valid when `schema=popover` (data type：Number)
 
-2.`getSelected`: 获取选中的列表项
+15.`popoverClass`: Popover pop-up window extra class.Only valid when `schema=popover` (data type：String)
 
-3.`terminal`: 判断是否ios或android终端。返回数据格式：`{android: true, ios: false}`
+16.`referenceTrigger`: Click on whether the reference can display the popover popup. The default is true.Only valid when `schema=popover` (data type: Boolean)
 
-## 事件
-1.`onchange`: 用户手动选择列表项时触发，会传递selected、value给onchange使用
+17.`searchInputPlaceholder`: Search for the placeholder text in the input box,Only valid in schema=popover, schema=modal (data type：String)
+
+18.`elId`: Trigger the id of the element displayed by the popover popup,Only valid in schema=popover mode (data type：String)
+
+19: `visible`: Control component display and hide, you need to use the `sync` syntax, such as:`:visible.sync="show"`, valid only in schema=modal mode (data type: Boolean)
+
+20: `cancelText`: Close the text of the button of the popup, default: 'Cancel', valid only in schema=modal mode (data type：String)
+
+## Methods(method)
+1.`show`: Display list
+
+2.`hide`: Hidden list
+
+3.`getSelected`: Get the selected list item
+
+4.`terminal`: Determine if ios or android terminal. Return data format：`{android: true, ios: false}`
+
+## Event
+1.`onChange`: Triggered when the user manually selects a list item, it will pass selected, value to onChange.
 
