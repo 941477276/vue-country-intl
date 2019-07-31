@@ -9,7 +9,10 @@ The country data supported by the plugin comes from:
 ## Effect preview
 [https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
 
-[中文文档](https://941477276.github.io/vue-country-intl/README-CM.md)
+[中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
+
+## Install
+`npm install vue-country-intl --save`
 
 ## Usage
 ```

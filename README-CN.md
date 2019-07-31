@@ -9,6 +9,9 @@ input、popover、modal）
 ## 效果预览
 [https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
 
+## 安裝
+`npm install vue-country-intl --save`
+
 ## 使用
 ```
 /*****main.js****/
