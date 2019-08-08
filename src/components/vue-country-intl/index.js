@@ -196,6 +196,10 @@ export default {
     _onChange(newCountry){
       this.selected = newCountry;
       this.$emit('onChange', newCountry);
+    },
+    // 设置显示的默认值
+    _onSelectedChange(selected){
+      this.selected = selected;
     }
   },
   watch: {

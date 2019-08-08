@@ -110,9 +110,9 @@ export default {
         default: '',
         country: '',
         defaultValue: '+86',
-        disableUse: '+86',
-        noImage: '86',
-        noCode: '+86',
+        disableUse: '86',
+        noImage: '+86',
+        //noCode: '',
         event: '+86',
         onlyValue: '+86'
       },
@@ -144,6 +144,12 @@ export default {
       console.log(1111)
       this.$refs.use_elId.show();
     }
+  },
+  mounted() {
+    let timer = setTimeout(() => {
+      this.schemaInput.noCode = '+86';
+      clearTimeout(timer);
+    }, 1600);
   }
 }
 </script>

@@ -4,7 +4,8 @@
       v-if="schema === 'input'"
       v-bind="$props"
       v-model="countryIntlValue"
-      @onChange="_onChange"></schema-input>
+      @onChange="_onChange"
+      @selectedChange="_onSelectedChange"></schema-input>
 
   <schema-popover
       ref="schemaPopover"

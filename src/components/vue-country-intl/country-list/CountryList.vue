@@ -93,6 +93,8 @@
           let cur = this.calcSelectedOption();
           if(cur !== this.selected){
             this.selected = cur;
+            // 设置显示的默认值
+            this.$emit('selectedChange', cur);
           }
         }
       }
@@ -103,19 +105,17 @@
         // console.log('计算选择值');
         let value = this.value;
         let isPhone = this.type.toLowerCase() === 'phone';
-        if (isPhone) {
-          if ((value + '').charAt(0) === '+') {
-            value = value.substr(1);
-          }
+        if ((value + '').charAt(0) === '+') {
+          value = value.substr(1);
         }
         let item = this.countryList.filter((item) => {
           if (isPhone) {
-            return item.dialCode === value;
+            return item.dialCode == value;
           } else {
-            return item.iso2 === value;
+            return item.iso2 == value;
           }
         });
-        if (!item) {
+        if (!item || item.length === 0) {
           item = {};
         } else {
           item = item[0] || {};

@@ -274,6 +274,11 @@ export default {
         this.selected = selected;
         this.$emit('onChange', selected);
       }
+    },
+    // 设置显示的默认值
+    _onSelectedChange(selected){
+      this.selected = selected;
+      this.$emit('selectedChange', selected);
     }
   },
   mounted() {
