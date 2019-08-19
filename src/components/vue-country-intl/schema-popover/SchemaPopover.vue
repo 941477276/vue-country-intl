@@ -20,6 +20,8 @@
               :show-selected-text="showSelectedText"
               :type="type"
               :search-able="searchAble"
+              :disable-country="disableCountry"
+              :only-country="onlyCountry"
               @onchange="_onCountryChange"
               @selectedChange="_onSelectedChange"></country-list>
         </div>
