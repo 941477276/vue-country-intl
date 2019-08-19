@@ -131,6 +131,20 @@ export default {
       type: String,
       default: '取消'
     },
+    /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
+    disableCountry: {
+      type: [String, Array],
+      default(){
+        return [];
+      }
+    },
+    // 只显示指定的国家，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔
+    onlyCountry: {
+      type: [String, Array],
+      default(){
+        return [];
+      }
+    }
   },
   data () {
     if (!window._vueCountryIntl_count) {
@@ -196,6 +210,10 @@ export default {
     _onChange(newCountry){
       this.selected = newCountry;
       this.$emit('onChange', newCountry);
+    },
+    // 设置显示的默认值
+    _onSelectedChange(selected){
+      this.selected = selected;
     }
   },
   watch: {

@@ -9,7 +9,10 @@ The country data supported by the plugin comes from:
 ## Effect preview
 [https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
 
-[中文文档](https://941477276.github.io/vue-country-intl/README-CM.md)
+[中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
+
+## Install
+`npm install vue-country-intl --save`
 
 ## Usage
 ```
@@ -114,6 +117,10 @@ effect:
 19: `visible`: Control component display and hide, you need to use the `sync` syntax, such as:`:visible.sync="show"`, valid only in schema=modal mode (data type: Boolean)
 
 20: `cancelText`: Close the text of the button of the popup, default: 'Cancel', valid only in schema=modal mode (data type：String)
+
+21: `disableCountry`: Disabled countries (can pass country name, country code, mobile area code), can pass strings or pass arrays, pass strings to disable multiple countries, need to be separated by commas（data type：String|Array）
+
+21: `onlyCountry`: Display only the specified country, can pass a string or pass an array, multiple countries separated by commas when passing a string（data type：String|Array）
 
 ## Methods(method)
 1.`show`: Display list

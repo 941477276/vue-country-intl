@@ -498,7 +498,7 @@ var allCountries = [
     '504',
   ],
   [
-    'Hong Kong (香港)',
+    'Hong Kong (中国香港)',
     'hk',
     '852',
   ],
@@ -1099,7 +1099,7 @@ var allCountries = [
     '963',
   ],
   [
-    'Taiwan (台灣)',
+    'Taiwan (中国台灣)',
     'tw',
     '886',
   ],

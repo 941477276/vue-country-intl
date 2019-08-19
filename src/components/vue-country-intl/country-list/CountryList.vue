@@ -65,6 +65,20 @@
         type: Boolean,
         default: true,
       },
+      /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
+      disableCountry: {
+        type: [String, Array],
+        default(){
+          return [];
+        }
+      },
+      // 只显示指定的国家，可以传递字符串也可以传递数组，传递字符串时多个国家使用逗号分隔
+      onlyCountry: {
+        type: [String, Array],
+        default(){
+          return [];
+        }
+      }
     },
     data(){
       return {
@@ -74,16 +88,49 @@
     computed: {
       countryList () {
         let searchText = this.searchText || '';
-        if (!this.searchAble || searchText.length === 0) {
-          return countriesData;
+        let countries = countriesData;
+        let disableCountry = typeof this.disableCountry === 'string' ? this.disableCountry.split(',') : this.disableCountry;
+        let onlyCountry = typeof this.onlyCountry === 'string' ? this.onlyCountry.split(',') : this.onlyCountry;
+        // 根据国家名称或国家代码或国家区号过滤只显示的国家
+        if(onlyCountry.length > 0){
+          countries = countries.filter(country => {
+            let index = this.getIndex(onlyCountry, (item) => {
+              let dialCode = item + '';
+              if(dialCode.charAt(0) === '+'){
+                dialCode = dialCode.replace('+', '');
+              }
+              return country.name === item || country.dialCode === dialCode || country.iso2 === item;
+            });
+            return index > -1;
+          });
+          // console.log('只显示指定国家', countries, onlyCountry)
         }
-        return countriesData.filter(item => {
+        // console.log('disableCountry', disableCountry)
+        // 根据国家名称或国家代码或国家区号过滤禁用的国家
+        if(disableCountry.length > 0){
+          countries = countries.filter(country => {
+            let index = this.getIndex(disableCountry, (item) => {
+              let dialCode = item + '';
+              if(dialCode.charAt(0) === '+'){
+                dialCode = dialCode.replace('+', '');
+              }
+              return country.name === item || country.dialCode === dialCode || country.iso2 === item;
+            });
+            return index === -1;
+          });
+        }
+        if (!this.searchAble || searchText.length === 0) {
+          return countries;
+        }
+        // 按搜索条件进行查询
+        countries =  countries.filter(item => {
           let reg = new RegExp(searchText, 'gi');
           let nameFlag = reg.test(item.name);
           let dialCodeFlag = reg.test(item.dialCode);
           let iso2Flag = reg.test(item.iso2);
           return nameFlag || dialCodeFlag || iso2Flag;
         });
+        return countries;
       },
     },
     watch: {
@@ -93,6 +140,8 @@
           let cur = this.calcSelectedOption();
           if(cur !== this.selected){
             this.selected = cur;
+            // 设置显示的默认值
+            this.$emit('selectedChange', cur);
           }
         }
       }
@@ -103,19 +152,17 @@
         // console.log('计算选择值');
         let value = this.value;
         let isPhone = this.type.toLowerCase() === 'phone';
-        if (isPhone) {
-          if ((value + '').charAt(0) === '+') {
-            value = value.substr(1);
-          }
+        if ((value + '').charAt(0) === '+') {
+          value = value.substr(1);
         }
         let item = this.countryList.filter((item) => {
           if (isPhone) {
-            return item.dialCode === value;
+            return item.dialCode == value;
           } else {
-            return item.iso2 === value;
+            return item.iso2 == value;
           }
         });
-        if (!item) {
+        if (!item || item.length === 0) {
           item = {};
         } else {
           item = item[0] || {};
@@ -153,6 +200,31 @@
         this.$emit('onchange', selected, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
 
         //console.log('target', target);
+      },
+      /**
+       * 获取数组中符合条件的元素的索引
+       * @param arr 数组
+       * @param fn 一个函数，如果函数返回true，则返回该项的下标，如果没有找到则返回-1
+       */
+      getIndex(arr, fn) {
+        if (!arr || arr.length == 0 || !fn || (typeof fn != "function")) {
+          return -1;
+        }
+
+        if (arr.findIndex) {
+          return arr.findIndex(fn);
+        }
+        let len = arr.length,
+          i = 0,
+          index = -1;
+        for (; i < len; i++) {
+          let item = arr[i];
+          if (fn(item, index, arr) === true) {
+            index = i;
+            break;
+          }
+        }
+        return index;
       },
     },
     mounted() {
