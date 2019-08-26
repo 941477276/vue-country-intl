@@ -122,9 +122,12 @@
         if (!this.searchAble || searchText.length === 0) {
           return countries;
         }
+        // 解决用户输入"+"作为搜索条件时，而导致new RegExp(searchText, 'gi')时将"+"认为是需要一个或多个字符
+        searchText = searchText.replace('+', '\\+');
         // 按搜索条件进行查询
         countries =  countries.filter(item => {
           let reg = new RegExp(searchText, 'gi');
+          console.log('reg',reg);
           let nameFlag = reg.test(item.name);
           let dialCodeFlag = reg.test(item.dialCode);
           let iso2Flag = reg.test(item.iso2);
