@@ -127,6 +127,11 @@ export default {
       type: Boolean,
       default: false
     },
+    // model弹窗额外class。只有在schema=model时有效
+    modelClass: {
+      type: String,
+      default: '',
+    },
     cancelText: {
       type: String,
       default: '取消'

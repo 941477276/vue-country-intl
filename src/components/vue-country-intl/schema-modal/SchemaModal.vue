@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="vue-country-intl-modal" ref="intl_modal" v-show="modalVisible">
+    <div class="vue-country-intl-modal" ref="intl_modal" :style="{zIndex: listZIndex != 0 ? listZIndex : ''}" v-show="modalVisible">
       <div class="country-modal-content">
         <div class="country-modal-search-box">
           <div class="modal-search-wrap">

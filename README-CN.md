@@ -112,13 +112,15 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 
 18.`elId`: 触发popover弹窗显示的元素的id，只在schema=popover模式下有效（数据类型：String）
 
-19: `visible`: 控制组件显示与隐藏，需使用`sync`语法，如:`:visible.sync="show"`，只在schema=modal模式下有效（数据类型：Boolean）
+19.`modelClass`: model弹窗额外class。只有在`schema=model`时有效（数据类型：String）
 
-20: `cancelText`: 关闭弹窗的按钮的文字，默认: '取消'，只在schema=modal模式下有效（数据类型：String）
+20: `visible`: 控制组件显示与隐藏，需使用`sync`语法，如:`:visible.sync="show"`，只在schema=modal模式下有效（数据类型：Boolean）
 
-21: `disableCountry`: 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔（数据类型：String|Array）
+21: `cancelText`: 关闭弹窗的按钮的文字，默认: '取消'，只在schema=modal模式下有效（数据类型：String）
 
-21: `onlyCountry`: 只显示指定的国家，可以传递字符串也可以传递数组，传递字符串时多个国家使用逗号分隔（数据类型：String|Array）
+22: `disableCountry`: 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔（数据类型：String|Array）
+
+23: `onlyCountry`: 只显示指定的国家，可以传递字符串也可以传递数组，传递字符串时多个国家使用逗号分隔（数据类型：String|Array）
 
 ## 可用方法(method)
 1.`show`: 显示列表
