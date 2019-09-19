@@ -114,7 +114,7 @@ effect:
 
 18.`elId`: Trigger the id of the element displayed by the popover popup,Only valid in schema=popover mode (data type：String)
 
-19.`modelClass`: Model pop-up extra class. Valid only when `schema=model` (data type: String)
+19.`modalClass`: Model pop-up extra class. Valid only when `schema=modal` (data type: String)
 
 20: `visible`: Control component display and hide, you need to use the `sync` syntax, such as:`:visible.sync="show"`, valid only in schema=modal mode (data type: Boolean)
 

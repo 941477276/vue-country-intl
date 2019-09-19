@@ -66,6 +66,10 @@ export default {
       type: Boolean,
       default: false
     },
+    modalClass: {
+      type: String,
+      default: '',
+    },
     /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
     disableCountry: {
       type: [String, Array],

@@ -112,7 +112,7 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 
 18.`elId`: 触发popover弹窗显示的元素的id，只在schema=popover模式下有效（数据类型：String）
 
-19.`modelClass`: model弹窗额外class。只有在`schema=model`时有效（数据类型：String）
+19.`modalClass`: model弹窗额外class。只有在`schema=modal`时有效（数据类型：String）
 
 20: `visible`: 控制组件显示与隐藏，需使用`sync`语法，如:`:visible.sync="show"`，只在schema=modal模式下有效（数据类型：Boolean）
 

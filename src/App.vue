@@ -198,7 +198,7 @@
         </div>
       </h3>
       <button type="button" @click="schemaModalVisible.default = true">选择手机区号</button>
-      <VueCountryIntl schema="modal" :visible.sync="schemaModalVisible.default" v-model="schemaModal.default"></VueCountryIntl>
+      <VueCountryIntl schema="modal" modal-class="modal-class" :listZIndex="5000" :visible.sync="schemaModalVisible.default" v-model="schemaModal.default"></VueCountryIntl>
       <h5 class="mt-5">2、区号：{{schemaModal.default || '--'}}</h5>
       <div class="hr"></div>
     </div>

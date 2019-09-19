@@ -128,7 +128,7 @@ export default {
       default: false
     },
     // model弹窗额外class。只有在schema=model时有效
-    modelClass: {
+    modalClass: {
       type: String,
       default: '',
     },
