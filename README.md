@@ -124,6 +124,10 @@ effect:
 
 23: `onlyCountry`: Display only the specified country, can pass a string or pass an array, multiple countries separated by commas when passing a string（data type：String|Array）
 
+24: 'noDataText' : the copywriter displayed when the national data is not searched, if there is' vueCountryNoData 'slot, slot contents will be displayed first (data type: String)
+
+
+
 ## Methods(method)
 1.`show`: Display list
 
@@ -132,6 +136,9 @@ effect:
 3.`getSelected`: Get the selected list item
 
 4.`terminal`: Determine if ios or android terminal. Return data format：`{android: true, ios: false}`
+
+## slot
+1.`vueCountryNoData`：Slot displayed when country data is not found
 
 ## Event
 1.`onChange`: Triggered when the user manually selects a list item, it will pass selected, value to onChange.

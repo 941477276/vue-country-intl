@@ -10,7 +10,9 @@
           <div>Default effect (select phone area code)</div>
         </div>
       </h3>
-      <VueCountryIntl v-model="schemaInput.default"></VueCountryIntl>
+      <VueCountryIntl v-model="schemaInput.default">
+        <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
+      </VueCountryIntl>
       <h5 class="mt-5">区号：{{schemaInput.default || '--'}}</h5>
       <div class="hr"></div>
 
@@ -21,7 +23,7 @@
           <div>Select country</div>
         </div>
       </h3>
-      <VueCountryIntl type="country" v-model="schemaInput.country"></VueCountryIntl>
+      <VueCountryIntl type="country" v-model="schemaInput.country" no-data-text="没有找到相关数据"></VueCountryIntl>
       <h5 class="mt-5">国籍代码：{{schemaInput.country || '--'}}</h5>
       <div class="hr"></div>
 
@@ -129,8 +131,9 @@
           <div>Default effect (select phone area code)</div>
         </div>
       </h3>
-      <VueCountryIntl schema="popover" v-model="schemaPopover.default">
+      <VueCountryIntl schema="popover" popover-class="popover-class1111" v-model="schemaPopover.default">
         <button type="button" slot="reference">选择手机区号</button>
+        <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
       </VueCountryIntl>
       <h5 class="mt-5">2、区号：{{schemaPopover.default || '--'}}</h5>
       <div class="hr"></div>
@@ -198,7 +201,9 @@
         </div>
       </h3>
       <button type="button" @click="schemaModalVisible.default = true">选择手机区号</button>
-      <VueCountryIntl schema="modal" modal-class="modal-class" :listZIndex="5000" :visible.sync="schemaModalVisible.default" v-model="schemaModal.default"></VueCountryIntl>
+      <VueCountryIntl schema="modal" modal-class="modal-class" :listZIndex="5000" :visible.sync="schemaModalVisible.default" v-model="schemaModal.default">
+        <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
+      </VueCountryIntl>
       <h5 class="mt-5">2、区号：{{schemaModal.default || '--'}}</h5>
       <div class="hr"></div>
     </div>
@@ -346,5 +351,8 @@ export default {
       border-top: 1px solid #ccc;
       border-left: none;
     }
+  }
+  .popover-class1111 .vue-country-no-data{
+    color: #f60;
   }
 </style>

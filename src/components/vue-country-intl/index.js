@@ -149,6 +149,11 @@ export default {
       default(){
         return [];
       }
+    },
+    // 未搜索到国家数据时显示的文案
+    noDataText: {
+      type: String,
+      default: '未找到任何数据！'
     }
   },
   data () {

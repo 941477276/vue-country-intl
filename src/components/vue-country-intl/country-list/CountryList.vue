@@ -13,7 +13,9 @@
         <span class="vue-country-areaCode" v-show="showAreaCode">+{{item.dialCode}}</span>
         <span class="selected-text" v-show="showSelectedText">{{selectedText}}</span>
       </li>
-      <li class="vue-country-no-data" v-show="countryList.length === 0">未找到任何数据！</li>
+      <li class="vue-country-no-data" v-show="countryList.length === 0">
+        <slot name="vueCountryNoData">{{noDataText}}</slot>
+      </li>
     </ul>
   </div>
 </template>
@@ -78,6 +80,11 @@
         default(){
           return [];
         }
+      },
+      // 未搜索到国家数据时显示的文案
+      noDataText: {
+        type: String,
+        default: '未找到任何数据！'
       }
     },
     data(){

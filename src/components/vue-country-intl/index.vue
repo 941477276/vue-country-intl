@@ -5,7 +5,9 @@
       v-bind="$props"
       v-model="countryIntlValue"
       @onChange="_onChange"
-      @selectedChange="_onSelectedChange"></schema-input>
+      @selectedChange="_onSelectedChange">
+    <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>
+  </schema-input>
 
   <schema-popover
       ref="schemaPopover"
@@ -14,6 +16,7 @@
       v-model="countryIntlValue"
       @onChange="_onChange">
     <slot name="reference" slot="reference"></slot>
+    <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>
   </schema-popover>
 
   <schema-modal
@@ -23,6 +26,7 @@
     v-model="countryIntlValue"
     :visible.sync="modalVisible"
     @onChange="_onChange">
+    <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>
   </schema-modal>
 </template>
 

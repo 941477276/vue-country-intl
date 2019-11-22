@@ -122,6 +122,8 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 
 23: `onlyCountry`: 只显示指定的国家，可以传递字符串也可以传递数组，传递字符串时多个国家使用逗号分隔（数据类型：String|Array）
 
+24: `noDataText`: 未搜索到国家数据时显示的文案，如有`vueCountryNoData`slot则优先显示slot内容（数据类型：String）
+
 ## 可用方法(method)
 1.`show`: 显示列表
 
@@ -130,6 +132,9 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 3.`getSelected`: 获取选中的列表项
 
 4.`terminal`: 判断是否ios或android终端。返回数据格式：`{android: true, ios: false}`
+
+## slot
+1.`vueCountryNoData`：未搜索到国家数据时显示的slot
 
 ## 事件
 1.`onChange`: 用户手动选择列表项时触发，会传递selected、value给onChange使用

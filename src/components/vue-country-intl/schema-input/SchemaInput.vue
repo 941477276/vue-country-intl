@@ -28,8 +28,11 @@
         :search-able="searchAble"
         :disable-country="disableCountry"
         :only-country="onlyCountry"
+        :no-data-text="noDataText"
         @onchange="_onCountryChange"
-        @selectedChange="_onSelectedChange"></country-list>
+        @selectedChange="_onSelectedChange">
+      <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>
+    </country-list>
   </div>
 </template>
 
