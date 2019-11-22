@@ -7,7 +7,7 @@ The country data supported by the plugin comes from:
 + country code: https://en.wikipedia.org/wiki/List_of_country_calling_codes
 
 ## Effect preview
-[https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
+[https://941477276.github.io/vue-country-intl/dist/](https://941477276.github.io/vue-country-intl/dist/)
 
 [中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
 

@@ -7,7 +7,7 @@ input、popover、modal）
 + country code: https://en.wikipedia.org/wiki/List_of_country_calling_codes
 
 ## 效果预览
-[https://941477276.github.io/vue-country-intl/dist/index.html](https://941477276.github.io/vue-country-intl/dist/index.html)
+[https://941477276.github.io/vue-country-intl/dist/](https://941477276.github.io/vue-country-intl/dist/)
 
 ## 安裝
 `npm install vue-country-intl --save`
