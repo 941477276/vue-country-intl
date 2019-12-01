@@ -124,6 +124,9 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 
 24: `noDataText`: 未搜索到国家数据时显示的文案，如有`vueCountryNoData`slot则优先显示slot内容（数据类型：String）
 
+25: `iosMobileReadonly`: ios移动终端输入框是否只读(只在`schema=input`模式下有效)，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来（数据类型：Boolean）
+
+
 ## 可用方法(method)
 1.`show`: 显示列表
 

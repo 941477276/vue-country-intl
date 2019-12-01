@@ -9,7 +9,7 @@
              @blur="hide"
              :id="id + '-input'"
              :placeholder="placeholder"
-             :readonly="readonly || isMobile">
+             :readonly="isIos && deviceWidth < 992 && iosMobileReadonly">
       <label :for="id + '-input'" class="country-intl-label">
         <span class="iti-flag" :class="selected.iso2" v-show="showLabelImg"></span>
         <span>{{viewText}}</span>

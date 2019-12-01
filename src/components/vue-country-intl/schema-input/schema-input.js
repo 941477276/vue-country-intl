@@ -88,6 +88,11 @@ export default {
     noDataText: {
       type: String,
       default: '未找到任何数据！'
+    },
+    // ios移动终端输入框是否只读，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来
+    iosMobileReadonly: {
+      type: Boolean,
+      default: true
     }
   },
   data(){
@@ -102,7 +107,8 @@ export default {
       inputFocused: false,
       // 列表在输入框下方
       listOnBottom: true,
-      isMobile: false,
+      isIos: false,
+      deviceWidth: window.innerWidth,
       schemaInputValue: this.value
     };
   },
@@ -207,8 +213,6 @@ export default {
     }
   },
   mounted(){
-    if(window.innerWidth && window.innerWidth < 992){
-      this.isMobile = true;
-    }
+    this.isIos = vueCountryTool.termianl().ios;
   }
 }

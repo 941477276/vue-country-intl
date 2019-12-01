@@ -154,6 +154,11 @@ export default {
     noDataText: {
       type: String,
       default: '未找到任何数据！'
+    },
+    // ios移动终端输入框是否只读，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来
+    iosMobileReadonly: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
