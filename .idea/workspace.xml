@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43d48f20-f092-45f9-a13a-79c0c46513e4" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="f607bfc6-f85a-4adb-93fe-dd89e4922640" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/dist/css/app.1da20470.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/app.6350d06b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.014735a9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.08bf3e19.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.ad939817.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.6201671e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.cff82f3e.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,10 +25,16 @@
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="ProjectId" id="1TxczgVVCPlvuXDxTZTY1VcTpKa" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -35,15 +48,15 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -52,12 +65,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="43d48f20-f092-45f9-a13a-79c0c46513e4" name="Default Changelist" comment="" />
+      <changelist id="f607bfc6-f85a-4adb-93fe-dd89e4922640" name="Default Changelist" comment="" />
       <created>1574405450735</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574405450735</updated>
       <workItem from="1574405453936" duration="6465000" />
+      <workItem from="1576574094251" duration="166000" />
+      <workItem from="1576574366587" duration="139000" />
+      <workItem from="1576574515534" duration="487000" />
     </task>
     <task id="LOCAL-00001" summary="解决@shershen提出的How change text &quot;not found&quot;问题">
       <created>1574413813748</created>
@@ -87,7 +103,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -95,6 +113,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="解决@shershen提出的How change text &quot;not found&quot;问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决@shershen提出的How change text &quot;not found&quot;问题" />
+    <MESSAGE value="解决schema=input，输入框输入内容后失去焦点时输入框中内容不会清空bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决schema=input，输入框输入内容后失去焦点时输入框中内容不会清空bug" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="873" y="292" key="CommitChangelistDialog2" timestamp="1576574820540">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="873" y="292" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1576574820540" />
+    <state x="988" y="415" key="MultipleFileMergeDialog" timestamp="1576573949054">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="988" y="415" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1576573949054" />
+    <state x="951" y="490" key="git4idea.merge.GitPullDialog" timestamp="1576574161826">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="951" y="490" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1576574161826" />
   </component>
 </project>
