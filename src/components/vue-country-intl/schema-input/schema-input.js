@@ -159,6 +159,7 @@ export default {
       });
     },
     hide(){
+      this.searchText = '';
       let timer = setTimeout(() => {
         this.inputFocused = false;
         this.countryListShow = false;
