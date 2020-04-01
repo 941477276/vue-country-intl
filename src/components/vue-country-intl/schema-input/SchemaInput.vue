@@ -5,6 +5,7 @@
       <input type="text"
              v-model="searchText"
              class="country-intl-input"
+             autocomplete="off"
              @focus="show"
              @blur="hide"
              :id="id + '-input'"

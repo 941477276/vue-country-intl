@@ -4,7 +4,7 @@
       <div class="country-modal-content">
         <div class="country-modal-search-box">
           <div class="modal-search-wrap">
-            <input type="text" v-model="searchText" class="country-modal-search-input" :placeholder="searchInputPlaceholder"/>
+            <input type="text" v-model="searchText" autocomplete="off" class="country-modal-search-input" :placeholder="searchInputPlaceholder"/>
             <span class="country-modal-search-cancel" @click="hide"><!--取消-->{{cancelText}}</span>
           </div>
         </div>
