@@ -137,12 +137,18 @@ export default {
     },
     hide(){
       let classList = document.body.classList;
-      // 解决ios无法点击问题
-      if(classList.contains('lock-scroll')){
-        classList.remove('lock-scroll');
-      }
-      this.searchText = '';
-      this.modalVisible = false;
+      /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+       */
+      let timer = setTimeout(() => {
+        clearTimeout(timer);
+        // 解决ios无法点击问题
+        if(classList.contains('lock-scroll')){
+          classList.remove('lock-scroll');
+        }
+        this.modalVisible = false;
+        this.searchText = '';
+      }, 100);
     },
     _onCountryChange(newCountry){
       if(newCountry !== this.selected){

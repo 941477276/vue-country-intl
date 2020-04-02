@@ -159,8 +159,11 @@ export default {
       });
     },
     hide(){
-      this.searchText = '';
+      /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+       */
       let timer = setTimeout(() => {
+        this.searchText = '';
         this.inputFocused = false;
         this.countryListShow = false;
         clearTimeout(timer);

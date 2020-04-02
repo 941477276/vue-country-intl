@@ -184,6 +184,7 @@
         e = e || window.event;
         e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
         let target = e.target;
+        // console.log('target', target, e.currentTarget)
         let selected;
         if(this.justRead){
           return;
@@ -198,6 +199,7 @@
         } else {
           selected = this.countryList[index];
         }
+
         // 如果是收到把列表显示出来的，则点击后需要收到隐藏
         if (this.isManualShow) {
           this.inputFocused = false;

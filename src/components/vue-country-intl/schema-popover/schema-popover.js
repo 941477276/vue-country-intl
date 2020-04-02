@@ -167,11 +167,17 @@ export default {
         return;
       }
       this.countryListShow = false;
-      this.searchText = '';
+
       // 这里的300毫秒必须与css transition事件保持一致
       let timer = setTimeout(() => {
         clearTimeout(timer);
         let popoverEle = this.$refs.intl_popover;
+
+        /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+       */
+        this.searchText = '';
+
         // 每次隐藏后移除popover的宽度，以方便后面计算
         if (popoverEle.style.width) {
           popoverEle.style.width = '';
