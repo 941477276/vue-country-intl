@@ -144,6 +144,11 @@ export default {
         this.$emit('input', newVal);
         this.hide();
       }
+    },
+    searchText(){
+      this.$nextTick(() => {
+        this._calculatePopoverPosition();
+      });
     }
   },
   methods: {
