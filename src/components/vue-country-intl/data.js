@@ -654,7 +654,7 @@ var allCountries = [
     '352',
   ],
   [
-    'Macau (澳門)',
+    'Macau (中國澳門)',
     'mo',
     '853',
   ],
