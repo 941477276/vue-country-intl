@@ -129,6 +129,7 @@ export default {
       isManualShow: false,
       //readonly: false,
       windowResizeTimer: null,
+      countryListVisible: false
     };
   },
   watch: {
@@ -156,6 +157,9 @@ export default {
     show() {
       if (this.disabled) {
         return;
+      }
+      if(!this.countryListVisible){
+        this.countryListVisible = true;
       }
       this.countryListShow = true;
 

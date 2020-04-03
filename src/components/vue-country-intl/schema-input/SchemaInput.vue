@@ -19,6 +19,7 @@
       <div class="prevent-click"></div>
     </div>
     <country-list
+        v-if="countryListVisible"
         v-show="countryListShow"
         ref="countryList"
         v-model="schemaInputValue"

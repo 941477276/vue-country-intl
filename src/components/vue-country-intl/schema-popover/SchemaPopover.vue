@@ -13,6 +13,7 @@
             <input type="text" class="search-input"autocomplete="off" v-model="searchText" :placeholder="searchInputPlaceholder">
           </div>
           <country-list
+              v-if="countryListVisible"
               ref="countryList"
               v-model="schemaPopoverValue"
               :search-text="searchText"

@@ -52,8 +52,10 @@
     white-space: nowrap;
     font-size: 14px;
     font-weight: 400;
-    background-color: #fff;
     cursor: text;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    background-color: #fff;
 }
 .vue-country-intl.focused .country-intl-label,
 .vue-country-intl .no-data .country-intl-label{

@@ -95,7 +95,8 @@ export default {
       schemaModalValue: this.value,
       searchText: '',
       modalVisible: false,
-      selected: {}
+      selected: {},
+      countryListVisible: false
     }
   },
   watch: {
@@ -132,6 +133,9 @@ export default {
       let classList = document.body.classList;
       if(!classList.contains('lock-scroll')){
         classList.add('lock-scroll');
+      }
+      if(!this.countryListVisible){
+        this.countryListVisible = true;
       }
       this.modalVisible = true;
     },

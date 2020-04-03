@@ -134,7 +134,7 @@
         // 按搜索条件进行查询
         countries =  countries.filter(item => {
           let reg = new RegExp(searchText, 'gi');
-          console.log('reg',reg);
+          // console.log('reg',reg);
           let nameFlag = reg.test(item.name);
           let dialCodeFlag = reg.test(item.dialCode);
           let iso2Flag = reg.test(item.iso2);
@@ -184,7 +184,7 @@
         e = e || window.event;
         e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
         let target = e.target;
-        // console.log('target', target, e.currentTarget)
+
         let selected;
         if(this.justRead){
           return;
@@ -192,12 +192,17 @@
         if (target.nodeName !== 'LI') {
           target = target.parentElement;
         }
+        console.log('target', target, e.currentTarget);
         let iso = target.getAttribute('data-iso');
         let index = target.getAttribute('data-index');
         if (iso === this.selected.iso2) {
           selected = {};
         } else {
           selected = this.countryList[index];
+        }
+        // 如果用户点击的是“无数据提示”则select会为undefined
+        if(!selected){
+          return;
         }
 
         // 如果是收到把列表显示出来的，则点击后需要收到隐藏
@@ -209,7 +214,7 @@
         // 实现自定义v-model第二步
         this.$emit('input', this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
         // 执行回调
-        this.$emit('onchange', selected, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
+        this.$emit('onchange', {selected}, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
 
         //console.log('target', target);
       },

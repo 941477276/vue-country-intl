@@ -9,6 +9,7 @@
           </div>
         </div>
         <country-list
+            v-if="countryListVisible"
             ref="countryList"
             v-model="schemaModalValue"
             :search-text="searchText"
