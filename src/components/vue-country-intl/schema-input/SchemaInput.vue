@@ -1,7 +1,7 @@
 <template>
   <div class="vue-country-intl"
        :class="{'focused': inputFocused, 'list-on-bottom': listOnBottom, 'list-on-top': !listOnBottom, 'vue-country-disabled': disabled}">
-    <div class="country-intl-input-wrap" ref="input_wrap" :class="{'no-data': !selected.name}">
+    <div class="country-intl-input-wrap" ref="input_wrap" :class="{'no-data': !selected.name, 'has-selected': selected.name}">
       <input type="text"
              v-model="searchText"
              class="country-intl-input"
