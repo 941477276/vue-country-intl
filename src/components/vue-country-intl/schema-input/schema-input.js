@@ -109,8 +109,7 @@ export default {
       listOnBottom: true,
       isIos: false,
       deviceWidth: window.innerWidth,
-      schemaInputValue: this.value,
-      countryListVisible: false
+      schemaInputValue: this.value
     };
   },
   computed: {
@@ -153,9 +152,6 @@ export default {
         return;
       }
       this.inputFocused = true;
-      if(!this.countryListVisible){
-        this.countryListVisible = true;
-      }
       this.countryListShow = true;
       this.searchText = '';
       this.$nextTick(() => {

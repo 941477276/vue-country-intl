@@ -220,7 +220,7 @@ export default {
   data(){
     return {
       schemaInput: {
-        default: '',
+        default: '+86',
         country: '',
         defaultValue: '+86',
         disableUse: '86',
