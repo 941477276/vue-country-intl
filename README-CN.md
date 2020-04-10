@@ -9,6 +9,15 @@ input、popover、modal）
 ## 效果预览
 [https://941477276.github.io/vue-country-intl/dist/](https://941477276.github.io/vue-country-intl/dist/)
 
+## 同门师兄弟
+>vue版的国籍/手机区号选择插件(`vue-country-intl`)
++ [vue-country-intl](https://github.com/941477276/vue-country-intl)
+>react版的国籍/手机区号选择插件(`reaxt-country-intl`)
++ [react-country-intl](https://github.com/941477276/react-country-intl)
+>微信小程序版的国籍/手机区号选择插件(`wx-country-intl`)
++ [wx-country-intl](https://github.com/941477276/wx-country-intl)
+
+
 ## 安裝
 `npm install vue-country-intl --save`
 

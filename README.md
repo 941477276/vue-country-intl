@@ -11,6 +11,15 @@ The country data supported by the plugin comes from:
 
 [中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
 
+## 同门师兄弟
+>vue版的国籍/手机区号选择插件(`vue-country-intl`)
++ [vue-country-intl](https://github.com/941477276/vue-country-intl)
+>react版的国籍/手机区号选择插件(`reaxt-country-intl`)
++ [react-country-intl](https://github.com/941477276/react-country-intl)
+>微信小程序版的国籍/手机区号选择插件(`wx-country-intl`)
++ [wx-country-intl](https://github.com/941477276/wx-country-intl)
+
+
 ## Install
 `npm install vue-country-intl --save`
 
