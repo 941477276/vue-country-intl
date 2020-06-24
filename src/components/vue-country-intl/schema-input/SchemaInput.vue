@@ -1,21 +1,22 @@
 <template>
   <div class="vue-country-intl"
        :class="{'focused': inputFocused, 'list-on-bottom': listOnBottom, 'list-on-top': !listOnBottom, 'vue-country-disabled': disabled}">
-    <div class="country-intl-input-wrap" ref="input_wrap" :class="{'no-data': !selected.name, 'has-selected': selected.name}">
+    <div class="country-intl-input-wrap" ref="input_wrap" :class="{'no-data': !selected.name, 'has-selected': selected.name}" @click="show">
       <input type="text"
              v-model="searchText"
              class="country-intl-input"
              autocomplete="off"
-             @focus="show"
-             @blur="hide"
+             ref="searchInput"
+             focus="show"
+             blur="hide"
              :id="id + '-input'"
              :placeholder="placeholder"
              :readonly="isIos && deviceWidth < 992 && iosMobileReadonly">
-      <label :for="id + '-input'" class="country-intl-label">
+      <label class="country-intl-label">
         <span class="iti-flag" :class="selected.iso2" v-show="showLabelImg"></span>
         <span>{{viewText}}</span>
       </label>
-      <label class="dropdown-flag" :for="id + '-input'"></label>
+      <label class="dropdown-flag"></label>
       <div class="prevent-click"></div>
     </div>
     <country-list

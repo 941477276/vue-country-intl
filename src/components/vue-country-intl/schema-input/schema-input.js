@@ -154,6 +154,14 @@ export default {
       this.inputFocused = true;
       this.countryListShow = true;
       this.searchText = '';
+      console.log(1111,!this.isIos, this.deviceWidth > 992, !this.iosMobileReadonly, !this.readonly)
+      if(!this.isIos && this.deviceWidth > 992 && !this.readonly){
+        console.log('自动获得焦点')
+        let timer = setTimeout(() => {
+          clearTimeout(timer);
+          this.$refs.searchInput.focus();
+        }, 0);
+      }
       this.$nextTick(() => {
         this._calculatePopoverDirection(this.$refs.countryList.$el);
       });
@@ -167,7 +175,14 @@ export default {
         this.inputFocused = false;
         this.countryListShow = false;
         clearTimeout(timer);
-      }, 150);
+      }, 80);
+    },
+    toggleVisible(){
+      if(this.countryListShow){
+        this.hide();
+      }else{
+        this.show();
+      }
     },
     // 计算弹出层方位
     _calculatePopoverDirection (ele,fn) {
@@ -209,14 +224,25 @@ export default {
         this.selected = newCountry;
         this.$emit('onChange', newCountry);
       }
+      this.hide();
     },
     // 设置显示的默认值
     _onSelectedChange(selected){
       this.selected = selected;
       this.$emit('selectedChange', selected);
+    },
+    _documentClickEvent(e){
+      let target = e.target;
+      if(!vueCountryTool.elementContains(this.$refs.input_wrap, target)){
+        this.hide();
+      }
     }
   },
   mounted(){
     this.isIos = vueCountryTool.termianl().ios;
+    vueCountryTool.bindEvent(document, 'click', this._documentClickEvent);
+    this.$once('hook:beforeDestroy', () => {
+      vueCountryTool.unBindEvent(document, 'click', this._documentClickEvent);
+    });
   }
 }
