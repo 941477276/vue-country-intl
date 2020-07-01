@@ -188,7 +188,7 @@ export default {
         this.searchText = '';
 
         // 每次隐藏后移除popover的宽度，以方便后面计算
-        if (popoverEle.style.width) {
+        if (popoverEle && popoverEle.style.width) {
           popoverEle.style.width = '';
         }
       }, 300);
