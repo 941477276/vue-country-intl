@@ -193,13 +193,14 @@
           target = target.parentElement;
         }
         console.log('target', target, e.currentTarget);
-        let iso = target.getAttribute('data-iso');
+        // let iso = target.getAttribute('data-iso');
         let index = target.getAttribute('data-index');
-        if (iso === this.selected.iso2) {
+        /*if (iso === this.selected.iso2) {
           selected = {};
         } else {
           selected = this.countryList[index];
-        }
+        }*/
+        selected = this.countryList[index];
         // 如果用户点击的是“无数据提示”则select会为undefined
         if(!selected){
           return;
