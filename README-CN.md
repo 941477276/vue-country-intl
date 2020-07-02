@@ -16,7 +16,8 @@ input、popover、modal）
 + [react-country-intl](https://github.com/941477276/react-country-intl)
 >微信小程序版的国籍/手机区号选择插件(`wx-country-intl`)
 + [wx-country-intl](https://github.com/941477276/wx-country-intl)
-
+>基于better-scroll的下拉刷新、上拉加载Vue插件(`vue-scroll-refresh-load`)
++ [vue-scroll-refresh-load](https://github.com/941477276/vue-scroll-refresh-load)
 
 ## 安裝
 `npm install vue-country-intl --save`
