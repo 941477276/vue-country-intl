@@ -35,6 +35,10 @@
         type: String,
         default: 'phone',
       },
+      iso2: { // 国籍代码，当type=phone时必须传递iso2属性，否则当区号代码为212或358时会出问题！
+        type: String,
+        default: ''
+      },
       listZIndex: { // 列表的层级
         type: Number,
         default: 0,
@@ -167,6 +171,10 @@
         }
         let item = this.countryList.filter((item) => {
           if (isPhone) {
+            if(this.iso2){
+              // console.log('iso2', this.iso2, item.iso2);
+              return item.iso2 == this.iso2;
+            }
             return item.dialCode == value;
           } else {
             return item.iso2 == value;
@@ -212,10 +220,11 @@
           this.countryListShow = false;
           this.isManualShow = false;
         }
+        this.selected = selected;
         // 实现自定义v-model第二步
         this.$emit('input', this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
         // 执行回调
-        this.$emit('onchange', {selected}, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
+        this.$emit('onchange', selected, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
 
         //console.log('target', target);
       },
@@ -247,6 +256,11 @@
     },
     mounted() {
       let cur = this.calcSelectedOption();
+      if(this.type == 'phone' && (this.iso2 + '').length == 0){
+        if(window && window['console']){
+          window['console']['error']('当type=phone时最好传递iso2属性，否则当区号代码为212或358时会出现选择不正确问题！');
+        }
+      }
       if(cur.iso2){
         // 执行回调。告诉父组件，以让父组件显示到界面
         this.$emit('onchange', cur, this.type.toLowerCase() === 'phone' ? (cur.dialCode || '') : (cur.iso2 || ''));

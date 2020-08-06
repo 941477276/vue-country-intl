@@ -48,6 +48,10 @@ export default {
       type: String,
       default: 'phone',
     },
+    iso2: { // 国籍代码，当type=phone时必须传递iso2属性，否则当区号代码为212或358时会出问题！
+      type: String,
+      default: ''
+    },
     // 是否可以搜索
     searchAble: {
       type: Boolean,
@@ -224,6 +228,7 @@ export default {
     },
     _onChange(newCountry){
       this.selected = newCountry;
+      console.log('_onChange', newCountry)
       this.$emit('onChange', newCountry);
     },
     // 设置显示的默认值

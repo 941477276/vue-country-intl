@@ -10,7 +10,7 @@
           <div>Default effect (select phone area code)</div>
         </div>
       </h3>
-      <VueCountryIntl v-model="schemaInput.default">
+      <VueCountryIntl v-model="schemaInput.default" :iso2="schemaInput.selectedObjDefault.iso2" @onChange="onDefaultChange">
         <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
       </VueCountryIntl>
       <h5 class="mt-5">区号：{{schemaInput.default || '--'}}</h5>
@@ -229,7 +229,8 @@ export default {
         event: '+86',
         onlyValue: '+86',
         disableCountry: '',
-        onlyCountry: ''
+        onlyCountry: '',
+        selectedObjDefault: {}
       },
       schemaPopover: {
         default: '',
@@ -258,6 +259,10 @@ export default {
     useElIdClick(){
       console.log(1111)
       this.$refs.use_elId.show();
+    },
+    onDefaultChange(selected){
+      console.log(5555, selected)
+      this.schemaInput.selectedObjDefault = selected;
     }
   },
   mounted() {

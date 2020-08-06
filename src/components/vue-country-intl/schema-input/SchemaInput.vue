@@ -27,6 +27,7 @@
         :selectedText="selectedText"
         :show-selected-text="showSelectedText"
         :type="type"
+        :iso2="iso2"
         :search-able="searchAble"
         :disable-country="disableCountry"
         :only-country="onlyCountry"
