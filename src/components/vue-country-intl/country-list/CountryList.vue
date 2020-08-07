@@ -165,6 +165,9 @@
       calcSelectedOption () {
         // console.log('计算选择值');
         let value = this.value;
+        if((value + '').length == 0){
+          return {};
+        }
         let isPhone = this.type.toLowerCase() === 'phone';
         if ((value + '').charAt(0) === '+') {
           value = value.substr(1);

@@ -268,8 +268,10 @@ export default {
   mounted() {
     let timer = setTimeout(() => {
       this.schemaInput.noCode = '+86';
+      this.schemaInput.default = '';
+      console.log('重新赋值了！');
       clearTimeout(timer);
-    }, 1600);
+    }, 3600);
   }
 }
 </script>
