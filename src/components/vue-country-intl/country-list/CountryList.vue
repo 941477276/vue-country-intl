@@ -260,9 +260,7 @@
     mounted() {
       let cur = this.calcSelectedOption();
       if(this.type == 'phone' && (this.iso2 + '').length == 0){
-        if(window && window['console']){
-          window['console']['error']('当type=phone时最好传递iso2属性，否则当区号代码为212或358时会出现选择不正确问题！');
-        }
+        console.error('当type=phone时最好传递iso2属性，否则当区号代码为212或358时会出现选择不正确问题！');
       }
       if(cur.iso2){
         // 执行回调。告诉父组件，以让父组件显示到界面
