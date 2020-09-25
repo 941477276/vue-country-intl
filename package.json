@@ -74,5 +74,16 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "files": [
+    "lib",
+    "src",
+    "public",
+    "build.js",
+    "package.json",
+    "vue.config.js",
+    "webpack.prod.js",
+    "README.md",
+    "README-CN.md"
   ]
 }
