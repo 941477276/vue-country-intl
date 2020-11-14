@@ -14,6 +14,8 @@
 //    Order (if >1 country with same dial code),
 //    Area codes
 // ]
+import {countriesName} from "./data-cn";
+
 var allCountries = [
   [
     'Afghanistan (‫افغانستان‬‎)',
@@ -1270,6 +1272,7 @@ for (var i = 0; i < allCountries.length; i++) {
   var c = allCountries[i];
   allCountries[i] = {
     name: c[0],
+    nameCN: countriesName[i], // 中文的国家名称
     iso2: c[1],
     dialCode: c[2],
     priority: c[3] || 0,

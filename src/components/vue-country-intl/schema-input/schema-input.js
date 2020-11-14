@@ -97,6 +97,11 @@ export default {
     iosMobileReadonly: {
       type: Boolean,
       default: true
+    },
+    // 是否使用中文显示国籍名称
+    useChinese: {
+      type: Boolean,
+      default: false
     }
   },
   data(){

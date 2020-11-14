@@ -115,6 +115,11 @@ export default {
     noDataText: {
       type: String,
       default: '未找到任何数据！'
+    },
+    // 是否使用中文显示国籍名称
+    useChinese: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

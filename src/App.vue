@@ -17,6 +17,19 @@
       <div class="hr"></div>
 
       <h3 class="mb-10">
+        <div class="pull-left">1-2、</div>
+        <div class="overflow">
+          <div class="mb-5">使用中文名称显示</div>
+          <div>Use Chinese name display</div>
+        </div>
+      </h3>
+      <VueCountryIntl v-model="schemaInput.default" :iso2="schemaInput.selectedObjDefault.iso2" :use-chinese="true" @onChange="onDefaultChange">
+        <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
+      </VueCountryIntl>
+      <h5 class="mt-5">区号：{{schemaInput.default || '--'}}</h5>
+      <div class="hr"></div>
+
+      <h3 class="mb-10">
         <div class="pull-left">2、</div>
         <div class="overflow">
           <div class="mb-5">选择国籍</div>

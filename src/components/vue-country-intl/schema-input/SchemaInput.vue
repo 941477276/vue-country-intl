@@ -32,6 +32,7 @@
         :disable-country="disableCountry"
         :only-country="onlyCountry"
         :no-data-text="noDataText"
+        :use-chinese="useChinese"
         @onchange="_onCountryChange"
         @selectedChange="_onSelectedChange">
       <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>

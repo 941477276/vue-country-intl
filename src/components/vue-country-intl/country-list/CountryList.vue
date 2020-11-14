@@ -9,7 +9,7 @@
           :data-index="index"
           :data-iso="item.iso2">
         <span class="iti-flag" :class="item.iso2"></span>
-        <span class="vue-country-name">{{item.name}}</span>
+        <span class="vue-country-name">{{useChinese ? item.nameCN : item.name}}</span>
         <span class="vue-country-areaCode" v-show="showAreaCode">+{{item.dialCode}}</span>
         <span class="selected-text" v-show="showSelectedText">{{selectedText}}</span>
       </li>
@@ -89,6 +89,11 @@
       noDataText: {
         type: String,
         default: '未找到任何数据！'
+      },
+      // 是否使用中文显示国籍名称
+      useChinese: {
+        type: Boolean,
+        default: false
       }
     },
     data(){
@@ -110,7 +115,7 @@
               if(dialCode.charAt(0) === '+'){
                 dialCode = dialCode.replace('+', '');
               }
-              return country.name === item || country.dialCode === dialCode || country.iso2 === item;
+              return country.name === item || country.nameCN === item || country.dialCode === dialCode || country.iso2 === item;
             });
             return index > -1;
           });
@@ -125,7 +130,7 @@
               if(dialCode.charAt(0) === '+'){
                 dialCode = dialCode.replace('+', '');
               }
-              return country.name === item || country.dialCode === dialCode || country.iso2 === item;
+              return country.name === item || country.nameCN === item || country.dialCode === dialCode || country.iso2 === item;
             });
             return index === -1;
           });
@@ -139,7 +144,7 @@
         countries =  countries.filter(item => {
           let reg = new RegExp(searchText, 'gi');
           // console.log('reg',reg);
-          let nameFlag = reg.test(item.name);
+          let nameFlag = reg.test(item.name || item.nameCN);
           let dialCodeFlag = reg.test(item.dialCode);
           let iso2Flag = reg.test(item.iso2);
           return nameFlag || dialCodeFlag || iso2Flag;

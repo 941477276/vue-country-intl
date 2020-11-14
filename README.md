@@ -50,6 +50,10 @@ effect:
 
 ![schema=input效果](./src/assets/schema_input.gif)
 
+
+display the nationality name in Chinese
+![display the nationality name in Chinese](./src/assets/use-chinese.gif)
+
 ## schema=popover(popover)
 ```
 <template>
@@ -137,7 +141,10 @@ effect:
 
 24: 'noDataText' : the copywriter displayed when the national data is not searched, if there is' vueCountryNoData 'slot, slot contents will be displayed first (data type: String)
 
-25: `iosMobileReadonly`: Whether the input box is read-only in the ios mobile terminal (only valid in `schema = input` mode), the default is true. If it is not in the read-only mode in the ios mobile terminal, the selection box will pop up（data type: Boolean）
+25: `iosMobileReadonly`: Whether the input box is read-only in the ios mobile terminal (only valid in `schema = input` mode), the default is `true`. If it is not in the read-only mode in the ios mobile terminal, the selection box will pop up（data type: Boolean）
+
+26: `useChiness`: Whether to display the nationality name in Chinese, the default is `false`.（data type: Boolean）
+
 
 ## Methods(method)
 1.`show`: Display list

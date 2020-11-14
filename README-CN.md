@@ -47,6 +47,10 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 
 ![schema=input效果](./src/assets/schema_input.gif)
 
+
+使用中文显示国籍名称
+![使用中文显示国籍名称](./src/assets/use-chinese.gif)
+
 ## schema=popover(popover弹窗式)
 ```
 <template>
@@ -135,6 +139,8 @@ Vue.component(VuCountryIntl.name, VuCountryIntl);
 24: `noDataText`: 未搜索到国家数据时显示的文案，如有`vueCountryNoData`slot则优先显示slot内容（数据类型：String）
 
 25: `iosMobileReadonly`: ios移动终端输入框是否只读(只在`schema=input`模式下有效)，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来（数据类型：Boolean）
+
+25: `useChinese`: 是否以中文显示国籍名称，默认为`true`（数据类型：Boolean）
 
 
 ## 可用方法(method)
