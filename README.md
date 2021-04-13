@@ -11,7 +11,7 @@ The country data supported by the plugin comes from:
 
 [中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
 
-## 同门师兄弟
+## Brother
 >vue版的国籍/手机区号选择插件(`vue-country-intl`)
 + [vue-country-intl](https://github.com/941477276/vue-country-intl)
 >react版的国籍/手机区号选择插件(`reaxt-country-intl`)
@@ -25,19 +25,31 @@ The country data supported by the plugin comes from:
 ## Install
 `npm install vue-country-intl --save`
 
-## Usage
+## Usage——.vue Single file
 ```
 /*****main.js****/
-import VuCountryIntl from 'vue-country-intl';
+import VueCountryIntl from 'vue-country-intl';
 // import css
 import 'vue-country-intl/lib/vue-country-intl.css'
 // Global registration component
-Vue.component(VuCountryIntl.name, VuCountryIntl);
+Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 /*****Used in components****/
 <template>
     <vue-country-intl v-model="countryCode"></vue-country-intl>
 </template>
+```
+
+## Usage——Import js files directly
+```
+<link rel="stylesheet" href="./lib/vue-country-intl.css">
+<script src="./lib/vue-country-intl.min.js"></script>
+<script>
+  Vue.component('vue-country-intl', vueCountryIntl);
+  new Vue({
+    el: '#app',
+    data: {}
+  });  
 ```
 
 ## schema=input(default)

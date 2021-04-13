@@ -22,19 +22,31 @@ input、popover、modal）
 ## 安裝
 `npm install vue-country-intl --save`
 
-## 使用
+## 使用——.vue单文件
 ```
 /*****main.js****/
-import VuCountryIntl from 'vue-country-intl';
+import VueCountryIntl from 'vue-country-intl';
 // 引入css
 import 'vue-country-intl/lib/vue-country-intl.css'
 // 全局注册组件
-Vue.component(VuCountryIntl.name, VuCountryIntl);
+Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 /*****组件中使用****/
 <template>
     <vue-country-intl v-model="countryCode"></vue-country-intl>
 </template>
+```
+
+## 使用——直接引入js文件
+```
+<link rel="stylesheet" href="./lib/vue-country-intl.css">
+<script src="./lib/vue-country-intl.min.js"></script>
+<script>
+  Vue.component('vue-country-intl', vueCountryIntl);
+  new Vue({
+    el: '#app',
+    data: {}
+  });  
 ```
 
 ## schema=input(默认)
