@@ -10,7 +10,9 @@
           :data-iso="item.iso2">
         <span class="iti-flag" :class="item.iso2"></span>
         <span class="vue-country-name">{{useChinese ? item.nameCN : item.name}}</span>
-        <span class="vue-country-areaCode" v-show="showAreaCode">+{{item.dialCode}}</span>
+        <span class="vue-country-areaCode" v-show="showAreaCode">
+          +{{item.dialCode | areaCodeView(item)}}
+        </span>
         <span class="selected-text" v-show="showSelectedText">{{selectedText}}</span>
       </li>
       <li class="vue-country-no-data" v-show="countryList.length === 0">
@@ -96,6 +98,18 @@
         default: false
       }
     },
+    filters: {
+      areaCodeView (dialCode, country) {
+        // console.log(dialCode, country);
+        // 有些国家的手机区号会有多个值
+        if(dialCode == 1 && country.areaCodes){
+          let otherEnableCodes = country.areaCodes.slice(0, 5);
+
+          return (country.areaCodes[0] + ` [${otherEnableCodes.join(', ')}]`);
+        }
+        return dialCode;
+      }
+    },
     data(){
       return {
         selected: {},
@@ -145,9 +159,20 @@
           let reg = new RegExp(searchText, 'gi');
           // console.log('reg',reg);
           let nameFlag = reg.test(item.name || item.nameCN);
+          if(nameFlag){
+            return true;
+          }
           let dialCodeFlag = reg.test(item.dialCode);
+          if(dialCodeFlag){
+            return true;
+          }
           let iso2Flag = reg.test(item.iso2);
-          return nameFlag || dialCodeFlag || iso2Flag;
+          if(iso2Flag){
+            return true;
+          }
+          // 有些国家的手机区号会有多个值
+          let diaCodeInMultipleAreaCodeCountry = item.areaCodes && item.areaCodes.some(areaCode => searchText.search(areaCode) > -1);
+          return diaCodeInMultipleAreaCodeCountry;
         });
         return countries;
       },
@@ -183,7 +208,15 @@
               // console.log('iso2', this.iso2, item.iso2);
               return item.iso2 == this.iso2;
             }
-            return item.dialCode == value;
+            // 一个国家只有一个手机区号的情况
+            if(item.dialCode == value){
+              return true;
+            }
+
+            // 一个国家有多个手机区号的情况
+            if(item.dialCode == 1 && item.areaCodes){
+              return item.areaCodes.some(areaCode => areaCode == value);
+            }
           } else {
             return item.iso2 == value;
           }
@@ -229,12 +262,22 @@
           this.isManualShow = false;
         }
         this.selected = selected;
-        // 实现自定义v-model第二步
-        this.$emit('input', this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
-        // 执行回调
-        this.$emit('onchange', selected, this.type.toLowerCase() === 'phone' ? (selected.dialCode || '') : (selected.iso2 || ''));
 
-        //console.log('target', target);
+        let result = '';
+        if(this.type.toLowerCase() === 'phone'){
+          // 一个国家有多个手机区号
+          if(selected.dialCode == 1 && selected.areaCodes) {
+            result = selected.areaCodes[0];
+          }else {
+            result = selected.dialCode || '';
+          }
+        }else{
+          result = selected.iso2 || '';
+        }
+        // 实现自定义v-model第二步
+        this.$emit('input', result);
+        // 执行回调
+        this.$emit('onchange', selected, result);
       },
       /**
        * 获取数组中符合条件的元素的索引

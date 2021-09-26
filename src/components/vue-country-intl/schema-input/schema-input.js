@@ -124,10 +124,20 @@ export default {
   computed: {
     viewText () {
       let selected = this.selected;
+      let value = (this.value + '').charAt(0) == '+' ? this.value.substr(1) : this.value;
       if (this.type.toLowerCase() === 'phone') {
+        let dialCode = selected.dialCode;
         if (this.onlyValue) {
-          return '+' + selected.dialCode;
+          // 处理一个国家有多个手机区号的情况
+          if (dialCode == 1 && selected.areaCodes) {
+            return '+' + (value || selected.areaCodes[0]);
+          }
+          return '+' + dialCode;
         } else if (this.showAreaCode) {
+          // 处理一个国家有多个手机区号的情况
+          if (dialCode == 1 && selected.areaCodes) {
+            return `${selected.name}(+${value || selected.areaCodes[0]})`;
+          }
           return selected.name + '(+' + selected.dialCode + ')';
         } else {
           return selected.name;

@@ -144,7 +144,7 @@
           <div>Default effect (select phone area code)</div>
         </div>
       </h3>
-      <VueCountryIntl schema="popover" popover-class="popover-class1111" v-model="schemaPopover.default">
+      <VueCountryIntl schema="popover" :searchInputPlaceholder="schemaPopover.placeholder" popover-class="popover-class1111" v-model="schemaPopover.default">
         <button type="button" slot="reference">选择手机区号</button>
         <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
       </VueCountryIntl>
@@ -247,6 +247,7 @@ export default {
       },
       schemaPopover: {
         default: '',
+        placeholder: '输入国家名称、区号搜索111',
         country: '',
         defaultValue: '+86',
         disableUse: '+86',
@@ -280,8 +281,9 @@ export default {
   },
   mounted() {
     let timer = setTimeout(() => {
-      this.schemaInput.noCode = '+86';
-      this.schemaInput.default = '';
+      // this.schemaInput.noCode = '+86';
+      this.schemaInput.default = '226';
+      this.schemaPopover.placeholder = '动态改变了';
       console.log('重新赋值了！');
       clearTimeout(timer);
     }, 3600);
