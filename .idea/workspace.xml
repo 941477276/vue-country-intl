@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f607bfc6-f85a-4adb-93fe-dd89e4922640" name="Default Changelist" comment="解决schema=input，输入框输入内容后失去焦点时输入框中内容不会清空bug">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.prod.js" afterDir="false" />
+    <list default="true" id="f607bfc6-f85a-4adb-93fe-dd89e4922640" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/app.53a47e5d.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/app.8e567659.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/app.a9206742.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.41287e49.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.6c30cab4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.d2813887.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.d66e5071.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.03e45224.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.a1e46045.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.e5437beb.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/vue-country-intl/country-list/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -104,6 +88,7 @@
       <workItem from="1632636254658" duration="79000" />
       <workItem from="1632636342856" duration="1415000" />
       <workItem from="1632637958808" duration="525000" />
+      <workItem from="1632638512728" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="解决@shershen提出的How change text &quot;not found&quot;问题">
       <created>1574413813748</created>
@@ -112,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574413813748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="解决“解决一个国家有多个手机区号时区号始终为1的情况”问题">
+      <created>1632638690976</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632638690976</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +162,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="解决@shershen提出的How change text &quot;not found&quot;问题" />
     <MESSAGE value="解决schema=input，输入框输入内容后失去焦点时输入框中内容不会清空bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决schema=input，输入框输入内容后失去焦点时输入框中内容不会清空bug" />
+    <MESSAGE value="解决“解决一个国家有多个手机区号时区号始终为1的情况”问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决“解决一个国家有多个手机区号时区号始终为1的情况”问题" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
