@@ -1,0 +1,80 @@
+.vue-country-intl-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+}
+.vue-country-intl-modal.fade-enter-active, .vue-country-intl-modal.fade-leave-active {
+    transition: opacity .3s;
+}
+.vue-country-intl-modal.fade-enter, .vue-country-intl-modal.fade-leave-to {
+    opacity: 0;
+}
+.country-modal-content{
+    position: relative;
+    height: 100%;
+    padding: 40px 0 0 0;
+}
+.country-modal-search-box{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 0 15px;
+}
+.modal-search-wrap{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.country-modal-search-input{
+    display: table-cell;
+    float: left;
+    width: 100%;
+    padding: 11px 15px 11px 0;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-size: 14px;
+    appearance: none; /* 去除iPhone输入框阴影 */
+}
+.country-modal-search-cancel{
+    display: table-cell;
+    vertical-align: middle;
+    width: 1%;
+    white-space: nowrap;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.vue-country-intl-modal .vue-country-list-wrap{
+    position: static;
+    height: 100%;
+    max-height: none;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+@media (min-width: 992px) {
+    .country-modal-content{
+        width: 500px;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .country-modal-search-box{
+        padding: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .vue-country-intl-modal .vue-country-list-wrap{
+        padding: 0 15px;
+        border-left: none;
+        border-right: none;
+    }
+    .vue-country-intl-modal .vue-country-list-wrap .vue-country-item{
+        padding-left: 0;
+    }
+}
