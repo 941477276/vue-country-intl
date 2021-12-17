@@ -24,7 +24,6 @@
 
 <script>
   import {countriesData} from "../data";
-
   export default {
     name: "CountryList",
     props: {
@@ -112,6 +111,7 @@
     },
     data(){
       return {
+        currentResult: '', // 当前值
         selected: {},
       };
     },
@@ -182,8 +182,16 @@
         immediate: true,
         handler(){
           let cur = this.calcSelectedOption();
+          // 防止重复计算
+          if(this.value == this.currentResult){
+            return;
+          }
+          console.log('watch', cur, this.selected);
+          console.log('watch', this.value, this.currentResult);
+
           if(cur !== this.selected){
             this.selected = cur;
+            this.currentResult = this.value;
             // 设置显示的默认值
             this.$emit('selectedChange', cur);
           }
@@ -242,19 +250,23 @@
           target = target.parentElement;
         }
         console.log('target', target, e.currentTarget);
-        // let iso = target.getAttribute('data-iso');
-        let index = target.getAttribute('data-index');
-        /*if (iso === this.selected.iso2) {
-          selected = {};
-        } else {
-          selected = this.countryList[index];
-        }*/
-        selected = this.countryList[index];
+        let countryList = this.countryList;
+        let iso = target.getAttribute('data-iso');
+        let index = -1;
+        for(let i = 0, len = countryList.length; i < len; i++){
+          if(countryList[i].iso2 === iso){
+            index = i;
+            selected = countryList[i];
+            break;
+          }
+        }
+        // let index = target.getAttribute('data-index');
+        // selected = this.countryList[index];
+        console.log('selected', selected, {...selected});
         // 如果用户点击的是“无数据提示”则select会为undefined
         if(!selected){
           return;
         }
-
         // 如果是收到把列表显示出来的，则点击后需要收到隐藏
         if (this.isManualShow) {
           this.inputFocused = false;
@@ -274,6 +286,7 @@
         }else{
           result = selected.iso2 || '';
         }
+        this.currentResult = result;
         // 实现自定义v-model第二步
         this.$emit('input', result);
         // 执行回调
