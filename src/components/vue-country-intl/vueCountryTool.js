@@ -91,4 +91,40 @@ export const vueCountryTool = {
       ios: isIOS,
     };
   },
+  // 计算默认选中的值
+  calcSelectedOption (value, type, countryList) {
+    // console.log('计算选择值');
+    if((value + '').length == 0){
+      return {};
+    }
+    let isPhone = type.toLowerCase() === 'phone';
+    if ((value + '').charAt(0) === '+') {
+      value = value.substr(1);
+    }
+    let item = countryList.filter((item) => {
+      if (isPhone) {
+        if(this.iso2){
+          // console.log('iso2', this.iso2, item.iso2);
+          return item.iso2 == this.iso2;
+        }
+        // 一个国家只有一个手机区号的情况
+        if(item.dialCode == value){
+          return true;
+        }
+
+        // 一个国家有多个手机区号的情况
+        if(item.dialCode == 1 && item.areaCodes){
+          return item.areaCodes.some(areaCode => areaCode == value);
+        }
+      } else {
+        return item.iso2 == value;
+      }
+    });
+    if (!item || item.length === 0) {
+      item = {};
+    } else {
+      item = item[0] || {};
+    }
+    return item;
+  },
 };
