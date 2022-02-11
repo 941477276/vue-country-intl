@@ -24,6 +24,8 @@
 
 <script>
   import {countriesData} from "../data";
+  import {vueCountryTool} from '../vueCountryTool';
+
   export default {
     name: "CountryList",
     props: {
@@ -181,7 +183,8 @@
       value: {
         immediate: true,
         handler(){
-          let cur = this.calcSelectedOption();
+          // let cur = this.calcSelectedOption();
+          let cur = vueCountryTool.calcSelectedOption(this.value, this.type, this.countryList);
           // 防止重复计算
           if(this.value == this.currentResult){
             return;
@@ -199,7 +202,7 @@
       }
     },
     methods: {
-      // 计算默认选中的值
+      /*// 计算默认选中的值
       calcSelectedOption () {
         // console.log('计算选择值');
         let value = this.value;
@@ -235,7 +238,7 @@
           item = item[0] || {};
         }
         return item;
-      },
+      },*/
       // 列表项点击事件
       _countryItemClick (e) {
         e = e || window.event;
@@ -319,7 +322,8 @@
       },
     },
     mounted() {
-      let cur = this.calcSelectedOption();
+      // let cur = this.calcSelectedOption();
+      let cur = vueCountryTool.calcSelectedOption(this.value, this.type, this.countryList);
       if(this.type == 'phone' && (this.iso2 + '').length == 0){
         console.error('当type=phone时最好传递iso2属性，否则当区号代码为212或358时会出现选择不正确问题！');
       }

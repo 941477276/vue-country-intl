@@ -1,5 +1,6 @@
 import CountryList from '../country-list/CountryList.vue';
 import {vueCountryTool} from "../vueCountryTool";
+import {countriesData} from '../data';
 
 export default {
   name: "SchemaInput",
@@ -112,6 +113,8 @@ export default {
       searchText: '',
       // 列表是否显示
       countryListShow: false,
+      countryListDisplay: false,
+      countryListDisplayTime: 0,
       // input输入框是否获得了焦点
       inputFocused: false,
       // 列表在输入框下方
@@ -152,9 +155,17 @@ export default {
     },
   },
   watch: {
-    value(newValue){
-      if(newValue !== this.schemaInputValue){
-        this.schemaInputValue = newValue;
+    value: {
+      immediate: true,
+      handler(newValue){
+        if(newValue !== this.schemaInputValue){
+          this.schemaInputValue = newValue;
+        }
+        // 如果列表未被渲染过，则自己计算选中的项
+        if(!this.countryListDisplay){
+          console.log('列表未被渲染过，自己计算选中的项');
+          this.selected = vueCountryTool.calcSelectedOption(this.value, this.type, countriesData);
+        }
       }
     },
     // 当前组件的值改变了，则通知父组件，及时改变父组件的值
@@ -170,20 +181,32 @@ export default {
       if (this.disabled) {
         return;
       }
-      this.inputFocused = true;
-      this.countryListShow = true;
-      this.searchText = '';
-      console.log(1111,!this.isIos, this.deviceWidth > 992, !this.iosMobileReadonly, !this.readonly)
-      if(!this.isIos && this.deviceWidth > 992 && !this.readonly){
-        console.log('自动获得焦点')
+      let handleShow = () => {
+        this.inputFocused = true;
+        this.countryListShow = true;
+        this.searchText = '';
+        console.log(1111,!this.isIos, this.deviceWidth > 992, !this.iosMobileReadonly, !this.readonly)
+        if(!this.isIos && this.deviceWidth > 992 && !this.readonly){
+          console.log('自动获得焦点')
+          let timer = setTimeout(() => {
+            clearTimeout(timer);
+            this.$refs.searchInput.focus();
+          }, 0);
+        }
+        this.$nextTick(() => {
+          this._calculatePopoverDirection(this.$refs.countryList.$el);
+        });
+      }
+      if(!this.countryListDisplay){
+        this.countryListDisplay = true;
+        this.countryListDisplayTime = new Date().getTime();
         let timer = setTimeout(() => {
           clearTimeout(timer);
-          this.$refs.searchInput.focus();
+          handleShow();
         }, 0);
+      }else {
+        handleShow();
       }
-      this.$nextTick(() => {
-        this._calculatePopoverDirection(this.$refs.countryList.$el);
-      });
     },
     hide(){
       /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
@@ -243,7 +266,12 @@ export default {
         this.selected = newCountry;
         this.$emit('onChange', newCountry);
       }
-      this.hide();
+      console.log(+new Date() - this.countryListDisplayTime);
+      // 防止第一显示列表时列表闪一下就消失。原因：CountryList组件在mount时会自动计算一次默认选中项，并通过onchange事件通知给当前组件
+      // 而在_onCountryChange中又做了隐藏列表处理
+      if((+new Date() - this.countryListDisplayTime) > 20){
+        this.hide();
+      }
     },
     // 设置显示的默认值
     _onSelectedChange(selected){
