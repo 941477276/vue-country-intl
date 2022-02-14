@@ -250,8 +250,8 @@ import '../node_modules/vue-country-intl/vue-country-intl.css'*/
 
 
 // 匹配以.svg结尾的文件
-// const svgFiles = require.context('./components/vue-country-intl/country-data/flags', true, /\.svg$/);
-const svgFiles = require.context('country-flag/country-flag-svgs', true, /\.svg$/);
+const svgFiles = require.context('./components/vue-country-intl/country-data/flags', true, /\.svg$/);
+// const svgFiles = require.context('country-flag/country-flag-svgs', true, /\.svg$/);
 // 获取svg文件路径
 const svgPathList = svgFiles.keys().map(item => svgFiles(item));
 // 从svg文件路径中提取svg的名称，如'img/ad.6370d983.svg'要提取出'ad'

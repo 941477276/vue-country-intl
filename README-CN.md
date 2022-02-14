@@ -187,7 +187,7 @@ import VueCountryFlag from 'vue-country-intl/lib/vue-country-flag.min.js';
 import 'vue-country-intl/lib/vue-country-flag.css'
 
 // 引入svg图标
-let flagFilePath = require.context('vue-country-intl/country-flag-svgs', true, /\.svg$/);
+let flagFilePath = require.context('vue-country-intl/lib/country-flag-svgs', true, /\.svg$/);
 Vue.use(VueCountryFlag, VueCountryIntl);
 
 /*****组件中使用****/

@@ -192,7 +192,7 @@ import VueCountryFlag from 'vue-country-intl/lib/vue-country-flag.min.js';
 import 'vue-country-intl/lib/vue-country-flag.css'
 
 // Introduce svg icons
-let flagFilePath = require.context('vue-country-intl/country-flag-svgs', true, /\.svg$/);
+let flagFilePath = require.context('vue-country-intl/lib/country-flag-svgs', true, /\.svg$/);
 Vue.use(VueCountryFlag, VueCountryIntl);
 
 /*****components used****/
