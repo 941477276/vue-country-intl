@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f607bfc6-f85a-4adb-93fe-dd89e4922640" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7e1eaadd-1b42-41f2-9547-f693a53b3ba1" name="Changes" comment="1、添加&lt;country-flag&gt;组件&#10;2、添加了7个国家/州&#10;3、解决schema=input，设置了中文名称显示而输入框中未显示中文问题">
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/8782463765d8f7b6c77b07bed82c30aa.png" beforeDir="false" afterPath="$PROJECT_DIR$/lib/3f9c5244d00fa49f145a9399c9a3a6e2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/f7cbf61bd9900dd76b80e222c65cf8be.png" beforeDir="false" afterPath="$PROJECT_DIR$/lib/7843df5c0ca1fbc2d1f30310a84f91c4.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,6 +51,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\my-project\vue-country-intl\dist" />
+      <recent name="E:\my-project\vue-country-intl" />
       <recent name="E:\my-project\vue-country-intl\src\components\vue-country-intl\country-list\img" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -157,7 +160,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="解决@shershen提出的How change text &quot;not found&quot;问题" />
