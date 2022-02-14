@@ -128,6 +128,7 @@ export default {
     viewText () {
       let selected = this.selected;
       let value = (this.value + '').charAt(0) == '+' ? this.value.substr(1) : this.value;
+      let name = this.useChinese ? selected.nameCN : selected.name;
       if (this.type.toLowerCase() === 'phone') {
         let dialCode = selected.dialCode;
         if (this.onlyValue) {
@@ -139,17 +140,17 @@ export default {
         } else if (this.showAreaCode) {
           // 处理一个国家有多个手机区号的情况
           if (dialCode == 1 && selected.areaCodes) {
-            return `${selected.name}(+${value || selected.areaCodes[0]})`;
+            return `${name}(+${value || selected.areaCodes[0]})`;
           }
-          return selected.name + '(+' + selected.dialCode + ')';
+          return name + '(+' + selected.dialCode + ')';
         } else {
-          return selected.name;
+          return name;
         }
       } else {
         if (this.onlyValue) {
           return selected.iso2;
         } else {
-          return selected.name;
+          return name;
         }
       }
     },

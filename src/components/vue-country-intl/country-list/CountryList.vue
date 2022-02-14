@@ -337,4 +337,5 @@
 
 <style>
   @import "country-list.css";
+  @import "../country-data/country-flags.css";
 </style>

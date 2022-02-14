@@ -1,5 +1,6 @@
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const os = require('os');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   baseUrl: './',
   configureWebpack: config => {
@@ -18,6 +19,17 @@ module.exports = {
       config.plugins.push(removeConsole);
     } else {
       // mutate for development...
+      /*config.plugins.push(
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: __dirname + '/node_modules/country-flag/country-flag-svgs',
+              to: __dirname + '/src/components',
+              // ignore: ['.*']
+            }
+          ]
+        })
+      )*/
     }
-  },
+  }
 }

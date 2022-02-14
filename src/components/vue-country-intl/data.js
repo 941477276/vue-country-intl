@@ -1265,6 +1265,42 @@ var allCountries = [
     '358',
     1,
   ],
+  // 以下数据2022-02-11添加
+  [
+    'Antarctica',
+    'aq',
+    '672'
+  ],
+  [
+    'Bouvet Island',
+    'bv',
+    '47'
+  ],
+  [
+    'South Georgia and the South Sandwich Islands',
+    'gs',
+    '500'
+  ],
+  [
+    'Heard Island and McDonald Islands',
+    'hm',
+    '672'
+  ],
+  [
+    'Pitcairn',
+    'pn',
+    '64'
+  ],
+  [
+    'French Southern Territories',
+    'tf',
+    '262'
+  ],
+  [
+    'United States Minor Outlying Islands',
+    'um',
+    '1'
+  ],
 ];
 
 // loop over all of the countries above
