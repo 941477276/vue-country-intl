@@ -1,4 +1,4 @@
-# vue-country-intl
+# 1 vue-country-intl
 Vue-based mobile phone area code selection, nationality selection component, compatible with pc, mobile.`vue-country-intl`There are 3 modes（
 input、popover、modal）
 
@@ -11,7 +11,7 @@ The country data supported by the plugin comes from:
 
 [中文文档](https://github.com/941477276/vue-country-intl/blob/master/README-CN.md)
 
-## Brother
+## 1.1 Brother
 >vue版的国籍/手机区号选择插件(`vue-country-intl`)
 + [vue-country-intl](https://github.com/941477276/vue-country-intl)
 >react版的国籍/手机区号选择插件(`reaxt-country-intl`)
@@ -22,10 +22,10 @@ The country data supported by the plugin comes from:
 + [vue-scroll-refresh-load](https://github.com/941477276/vue-scroll-refresh-load)
 
 
-## Install
+## 1.2 Install
 `npm install vue-country-intl --save`
 
-## Usage——.vue Single file
+## 1.3 Usage——.vue Single file
 ```
 /*****main.js****/
 import VueCountryIntl from 'vue-country-intl';
@@ -40,7 +40,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 </template>
 ```
 
-## Usage——Import js files directly
+## 1.4 Usage——Import js files directly
 ```
 <link rel="stylesheet" href="./lib/vue-country-intl.css">
 <script src="./lib/vue-country-intl.min.js"></script>
@@ -52,7 +52,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
   });  
 ```
 
-## schema=input(default)
+## 1.5 schema=input(default)
 ```
 <template>
     <VueCountryIntl v-model="phoneCountry"></VueCountryIntl>
@@ -66,7 +66,7 @@ effect:
 display the nationality name in Chinese
 ![display the nationality name in Chinese](./src/assets/use-chinese.gif)
 
-## schema=popover(popover)
+## 1.6 schema=popover(popover)
 ```
 <template>
     <button type="button" id="my_reference">Select phone area code</button>
@@ -85,7 +85,7 @@ effect:
 
 ![schema=popover效果](./src/assets/schema_popover.gif)
 
-## schema=modal
+## 1.7 schema=modal
 ```
 <template>
     <VueCountryIntl schema="modal" v-model="phoneCountry"></VueCountryIntl>
@@ -95,7 +95,7 @@ effect:
 
 ![schema=modal效果](./src/assets/schema_modal.gif)
 
-## props
+## 1.8 props
 1.`schema`: Display mode
 
 + input: Display as an `input` input box (default)
@@ -158,7 +158,7 @@ effect:
 26: `useChiness`: Whether to display the nationality name in Chinese, the default is `false`.（data type: Boolean）
 
 
-## Methods(method)
+## 1.9 Methods(method)
 1.`show`: Display list
 
 2.`hide`: Hidden list
@@ -167,9 +167,59 @@ effect:
 
 4.`terminal`: Determine if ios or android terminal. Return data format：`{android: true, ios: false}`
 
-## slot
+## 1.10 slot
 1.`vueCountryNoData`：Slot displayed when country data is not found
 
-## Event
+## 1.11 Event
 1.`onChange`: Triggered when the user manually selects a list item, it will pass selected, value to onChange.
 
+
+
+# 2、country-flag
+A Vue-based national flag flag component
+
+## Effect preview
+![country-flag组件效果](./src/assets/country-flags-effect.png)
+
+## 2.1、Install
+`npm install vue-country-intl --save`
+
+## 1.3、Usage
+```
+/*****main.js****/
+import VueCountryFlag from 'vue-country-intl/lib/vue-country-flag.min.js';
+// import css
+import 'vue-country-intl/lib/vue-country-flag.css'
+
+// Introduce svg icons
+let flagFilePath = require.context('vue-country-intl/country-flag-svgs', true, /\.svg$/);
+Vue.use(VueCountryFlag, VueCountryIntl);
+
+/*****components used****/
+<template>
+    <VueCountryFlag value="cn"></VueCountryFlag>
+    <VueCountryFlag value="+86">
+      <template v-slot="{country}">
+        <span class="slot-span">国家：<mark>{{country.name}}</mark></span>
+      </template>
+    </VueCountryFlag>
+</template>
+```
+
+## 1.4、props
+1.`value`: Nationality code or phone area code value
+
+2.`type`: value type
+
++ phone: Indicates the selection of the mobile phone area code
++ country: Indicates the choice of nationality
+
+3.`iso2`: Nationality code, the iso2 attribute must be passed when type=phone, otherwise there will be problems when the area code is 212 or 358!
+
+4.`useTitle`: Whether to add the `title` attribute to the element, the value of title is the code of the nationality or the area code of the mobile phone (data type: Boolean)
+
+## 1.5、Methods
+1.`getCountry`: Get detailed nationality information
+
+## 1.6、Event
+1.`click`: click event
