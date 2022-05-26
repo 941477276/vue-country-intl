@@ -36,7 +36,8 @@
         :use-chinese="useChinese"
         @onchange="_onCountryChange"
         @selectedChange="_onSelectedChange">
-      <template slot="vueCountryNoData"><slot name="vueCountryNoData"></slot></template>
+      <template #vueCountryNoData><slot name="vueCountryNoData"></slot></template>
+      <template #selected><slot name="selected"></slot></template>
     </country-list>
   </div>
 </template>

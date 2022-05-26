@@ -13,7 +13,11 @@
         <span class="vue-country-areaCode" v-show="showAreaCode">
           +{{item.dialCode | areaCodeView(item)}}
         </span>
-        <span class="selected-text" v-show="showSelectedText">{{selectedText}}</span>
+        <span class="selected-text" v-show="showSelectedText">
+          <slot name="selected">
+            {{selectedText}}
+          </slot>
+        </span>
       </li>
       <li class="vue-country-no-data" v-show="countryList.length === 0">
         <slot name="vueCountryNoData">{{noDataText}}</slot>

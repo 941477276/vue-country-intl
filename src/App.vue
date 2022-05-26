@@ -13,7 +13,8 @@
           </div>
         </h3>
         <VueCountryIntl v-model="schemaInput.default" :iso2="schemaInput.selectedObjDefault.iso2" @onChange="onDefaultChange">
-          <template slot="vueCountryNoData"><h1>没有找到该国籍！</h1></template>
+          <template #vueCountryNoData><h1>没有找到该国籍！</h1></template>
+          <template #selected>(๑*◡*๑)<span style="margin-left: 5px;font-size: 1.3em;">👍</span></template>
         </VueCountryIntl>
         <h5 class="mt-5">区号：{{schemaInput.default || '--'}}</h5>
         <div class="hr"></div>
@@ -259,7 +260,7 @@ const pickISOCodeReg = /\/(\w+)\.\w+\.svg$/;
 // 获取svg文件名称正则
 let reg = /(\w+)(\.\w*)*\.svg$/;
 const svgPathObj = svgPathList.reduce((res, svgPath) => {
-  console.log(svgPath);
+  // console.log(svgPath);
   let pathIsString = typeof svgPath === 'string';
   let matched = pathIsString ? svgPath.match(reg) : svgPath.default.match(reg);
 
