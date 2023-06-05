@@ -98,7 +98,7 @@
           let reg = new RegExp(searchText, 'gi');
           // console.log('reg',reg);
           let nameFlag = reg.test(item.name);
-          let nameFlag2 = this.useChinese ? reg.test(item.nameCN) : false;
+          let nameFlag2 = reg.test(item.nameCN);
           if(nameFlag || nameFlag2){
             return true;
           }
