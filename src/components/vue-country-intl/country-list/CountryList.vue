@@ -164,8 +164,9 @@
         countries =  countries.filter(item => {
           let reg = new RegExp(searchText, 'gi');
           // console.log('reg',reg);
-          let nameFlag = reg.test(item.name || item.nameCN);
-          if(nameFlag){
+          let nameFlag = reg.test(item.name);
+          let nameFlag2 = this.useChinese ? reg.test(item.nameCN) : false;
+          if(nameFlag || nameFlag2){
             return true;
           }
           let dialCodeFlag = reg.test(item.dialCode);
