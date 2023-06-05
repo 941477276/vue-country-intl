@@ -198,6 +198,7 @@ export default {
         }
         this.$nextTick(() => {
           this._calculatePopoverDirection(this.$refs.countryList.$el);
+          this.$emit('show');
         });
       }
       if(!this.countryListDisplay){
@@ -220,6 +221,7 @@ export default {
         this.inputFocused = false;
         this.countryListShow = false;
         clearTimeout(timer);
+        this.$emit('hide');
       }, 80);
     },
     toggleVisible(){
