@@ -1,6 +1,7 @@
 import CountryList from '../country-list/CountryList.vue';
 import {vueCountryTool} from "../vueCountryTool";
 import {countriesData} from '../data';
+import {countryListProps} from '../country-list/country-list-props';
 
 export default {
   name: "SchemaInput",
@@ -9,12 +10,13 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    ...countryListProps,
     // 下拉框placeholder
     placeholder: {
       type: String,
       default: '请选择国家',
     },
-    // 是否显示区号
+    /* // 是否显示区号
     showAreaCode: {
       type: Boolean,
       default: true,
@@ -39,7 +41,7 @@ export default {
     listZIndex: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 输入框中是否显示图片
     showLabelImg: {
       type: Boolean,
@@ -50,11 +52,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    // 列表最大高度
+    /* // 列表最大高度
     maxHeight: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 是否禁用
     disabled: {
       type: Boolean,
@@ -65,7 +67,7 @@ export default {
       type: Boolean,
       default: false
     },
-    // 选中项中右侧 "select" 的文案
+    /* // 选中项中右侧 "select" 的文案
     selectedText: {
       type: String,
       default: 'Selected',
@@ -74,9 +76,9 @@ export default {
     showSelectedText: {
       type: Boolean,
       default: true,
-    },
+    }, */
     /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
-    disableCountry: {
+    /* disableCountry: {
       type: [String, Array],
       default(){
         return [];
@@ -93,24 +95,24 @@ export default {
     noDataText: {
       type: String,
       default: '未找到任何数据！'
-    },
+    }, */
     // ios移动终端输入框是否只读，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来
     iosMobileReadonly: {
       type: Boolean,
       default: true
     },
-    // 是否使用中文显示国籍名称
+    /* // 是否使用中文显示国籍名称
     useChinese: {
       type: Boolean,
       default: false
-    }
+    } */
   },
   data(){
     return {
       id: 'vue_country_intl-' + window._vueCountryIntl_count,
       // options: countriesData,
       selected: {},
-      searchText: '',
+      searchInputText: '',
       // 列表是否显示
       countryListShow: false,
       countryListDisplay: false,
@@ -185,7 +187,7 @@ export default {
       let handleShow = () => {
         this.inputFocused = true;
         this.countryListShow = true;
-        this.searchText = '';
+        this.searchInputText = '';
         console.log(1111,!this.isIos, this.deviceWidth > 992, !this.iosMobileReadonly, !this.readonly)
         if(!this.isIos && this.deviceWidth > 992 && !this.readonly){
           console.log('自动获得焦点')
@@ -210,11 +212,11 @@ export default {
       }
     },
     hide(){
-      /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
-        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+      /*this.searchInputText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchInputText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
        */
       let timer = setTimeout(() => {
-        this.searchText = '';
+        this.searchInputText = '';
         this.inputFocused = false;
         this.countryListShow = false;
         clearTimeout(timer);

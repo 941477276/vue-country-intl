@@ -1,4 +1,5 @@
 import CountryList from '../country-list/CountryList.vue';
+import {countryListProps} from '../country-list/country-list-props';
 // import {vueCountryTool} from "../vueCountryTool";
 export default {
   name: "SchemaModal",
@@ -7,7 +8,8 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    // 是否显示区号
+    ...countryListProps,
+   /*  // 是否显示区号
     showAreaCode: {
       type: Boolean,
       default: true,
@@ -37,7 +39,7 @@ export default {
     maxHeight: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 是否禁用
     disabled: {
       type: Boolean,
@@ -48,7 +50,7 @@ export default {
       type: Boolean,
       default: false
     },
-    // 选中项中右侧 "select" 的文案
+    /* // 选中项中右侧 "select" 的文案
     selectedText: {
       type: String,
       default: 'Selected',
@@ -57,7 +59,7 @@ export default {
     showSelectedText: {
       type: Boolean,
       default: true,
-    },
+    }, */
     searchInputPlaceholder: {
       type: String,
       default: '输入国家名称、区号搜索'
@@ -75,7 +77,7 @@ export default {
       default: '',
     },
     /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
-    disableCountry: {
+   /*  disableCountry: {
       type: [String, Array],
       default(){
         return [];
@@ -97,12 +99,12 @@ export default {
     useChinese: {
       type: Boolean,
       default: false
-    }
+    } */
   },
   data(){
     return {
       schemaModalValue: this.value,
-      searchText: '',
+      searchInputText: '',
       modalVisible: false,
       selected: {},
       countryListVisible: false
@@ -150,8 +152,8 @@ export default {
     },
     hide(){
       let classList = document.body.classList;
-      /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
-        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+      /*this.searchInputText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchInputText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
        */
       let timer = setTimeout(() => {
         clearTimeout(timer);
@@ -160,7 +162,7 @@ export default {
           classList.remove('lock-scroll');
         }
         this.modalVisible = false;
-        this.searchText = '';
+        this.searchInputText = '';
       }, 100);
     },
     _onCountryChange(newCountry){

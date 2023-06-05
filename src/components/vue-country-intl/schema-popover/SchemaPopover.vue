@@ -10,13 +10,13 @@
            v-show="countryListShow">
         <div class="vue-country-intl-popover-content">
           <div class="search-input-box">
-            <input type="text" class="search-input" autocomplete="off" v-model="searchText" :placeholder="searchInputPlaceholder">
+            <input type="text" class="search-input" autocomplete="off" v-model="searchInputText" :placeholder="searchInputPlaceholder">
           </div>
           <country-list
               v-if="countryListVisible"
               ref="countryList"
               v-model="schemaPopoverValue"
-              :search-text="searchText"
+              :search-text="searchInputText"
               :selectedText="selectedText"
               :show-selected-text="showSelectedText"
               :type="type"

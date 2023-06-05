@@ -3,7 +3,7 @@
        :class="{'focused': inputFocused, 'list-on-bottom': listOnBottom, 'list-on-top': !listOnBottom, 'vue-country-disabled': disabled}">
     <div class="country-intl-input-wrap" ref="input_wrap" :class="{'no-data': !selected.name, 'has-selected': selected.name}" @click="show">
       <input type="text"
-             v-model="searchText"
+             v-model="searchInputText"
              class="country-intl-input"
              autocomplete="off"
              ref="searchInput"
@@ -24,7 +24,7 @@
         v-show="countryListShow"
         ref="countryList"
         v-model="schemaInputValue"
-        :search-text="searchText"
+        :search-text="searchInputText"
         :selectedText="selectedText"
         :show-selected-text="showSelectedText"
         :type="type"

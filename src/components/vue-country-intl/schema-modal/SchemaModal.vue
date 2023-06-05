@@ -4,7 +4,7 @@
       <div class="country-modal-content">
         <div class="country-modal-search-box">
           <div class="modal-search-wrap">
-            <input type="text" v-model="searchText" autocomplete="off" class="country-modal-search-input" :placeholder="searchInputPlaceholder"/>
+            <input type="text" v-model="searchInputText" autocomplete="off" class="country-modal-search-input" :placeholder="searchInputPlaceholder"/>
             <span class="country-modal-search-cancel" @click="hide"><!--取消-->{{cancelText}}</span>
           </div>
         </div>
@@ -12,7 +12,7 @@
             v-if="countryListVisible"
             ref="countryList"
             v-model="schemaModalValue"
-            :search-text="searchText"
+            :search-text="searchInputText"
             :selectedText="selectedText"
             :show-selected-text="showSelectedText"
             :type="type"

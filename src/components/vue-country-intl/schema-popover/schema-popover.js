@@ -1,5 +1,6 @@
 import CountryList from '../country-list/CountryList.vue';
 import {vueCountryTool} from "../vueCountryTool";
+import {countryListProps} from '../country-list/country-list-props';
 
 export default {
   name: "SchemaPopover",
@@ -8,8 +9,9 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    ...countryListProps,
     // 是否显示区号
-    showAreaCode: {
+    /* showAreaCode: {
       type: Boolean,
       default: true,
     },
@@ -33,7 +35,7 @@ export default {
     listZIndex: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 输入框中是否显示图片
     showLabelImg: {
       type: Boolean,
@@ -44,11 +46,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    // 列表最大高度
+    /* // 列表最大高度
     maxHeight: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 是否禁用
     disabled: {
       type: Boolean,
@@ -59,7 +61,7 @@ export default {
       type: Boolean,
       default: false
     },
-    // 选中项中右侧 "select" 的文案
+    /* // 选中项中右侧 "select" 的文案
     selectedText: {
       type: String,
       default: 'Selected',
@@ -68,7 +70,7 @@ export default {
     showSelectedText: {
       type: Boolean,
       default: true,
-    },
+    }, */
     searchInputPlaceholder: {
       type: String,
       default: '输入国家名称、区号搜索'
@@ -98,7 +100,7 @@ export default {
       default: ''
     },
     /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
-    disableCountry: {
+    /* disableCountry: {
       type: [String, Array],
       default(){
         return [];
@@ -120,13 +122,13 @@ export default {
     useChinese: {
       type: Boolean,
       default: false
-    }
+    } */
   },
   data() {
     return {
       id: 'vue_country_intl-' + window._vueCountryIntl_count,
       selected: {},
-      searchText: '',
+      searchInputText: '',
       schemaPopoverValue: this.value,
       // 列表是否显示
       countryListShow: false,
@@ -155,7 +157,7 @@ export default {
         this.hide();
       }
     },
-    searchText(){
+    searchInputText(){
       this.$nextTick(() => {
         this._calculatePopoverPosition();
       });
@@ -191,10 +193,10 @@ export default {
         clearTimeout(timer);
         let popoverEle = this.$refs.intl_popover;
 
-        /*this.searchText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
-        this.searchText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
+        /*this.searchInputText = ''; 需要放到timeout中去执行以解决搜索后无法选折国籍问题
+        this.searchInputText = '';放在外部则会导致在点击下拉列表的一瞬间 event.target 直接变成ul，从而造成无法选择
        */
-        this.searchText = '';
+        this.searchInputText = '';
 
         // 每次隐藏后移除popover的宽度，以方便后面计算
         if (popoverEle && popoverEle.style.width) {
