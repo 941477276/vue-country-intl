@@ -2,6 +2,8 @@ import SchemaInput from './schema-input/SchemaInput.vue';
 import SchemaPopover from './schema-popover/SchemaPopover.vue';
 import SchemaModal from './schema-modal/SchemaModal.vue';
 import {vueCountryTool} from "./vueCountryTool";
+import {countryListProps} from './country-list/country-list-props';
+import { version } from '../../../version';
 
 /*
   {
@@ -25,6 +27,7 @@ export default {
     'schema-modal': SchemaModal
   },
   props: {
+    ...countryListProps,
     // 展示模式
     schema: {
       type: String,
@@ -42,7 +45,7 @@ export default {
       default: true,
     },
     // 实现自定义v-model第一步
-    value: '',
+    /* value: '',
     // 类型，有两种类型，第一种：选择手机号码区号，值为phone;第二种：选择国家，值为country
     type: {
       type: String,
@@ -61,7 +64,7 @@ export default {
     listZIndex: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 输入框中是否显示图片
     showLabelImg: {
       type: Boolean,
@@ -72,11 +75,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    // 列表最大高度
+    /* // 列表最大高度
     maxHeight: {
       type: Number,
       default: 0,
-    },
+    }, */
     // 是否禁用
     disabled: {
       type: Boolean,
@@ -87,7 +90,7 @@ export default {
       type: Boolean,
       default: false
     },
-    // 选中项中右侧 "select" 的文案
+    /* // 选中项中右侧 "select" 的文案
     selectedText: {
       type: String,
       default: 'Selected',
@@ -96,7 +99,7 @@ export default {
     showSelectedText: {
       type: Boolean,
       default: true,
-    },
+    }, */
     searchInputPlaceholder: {
       type: String,
       default: '输入国家名称、区号搜索'
@@ -141,7 +144,7 @@ export default {
       default: '取消'
     },
     /* 禁用的国家(可以传递国家名称、国家代码、国家区号)，可以传递字符串也可以传递数组，传递字符串时禁用多个国家使用逗号分隔 */
-    disableCountry: {
+    /* disableCountry: {
       type: [String, Array],
       default(){
         return [];
@@ -158,17 +161,17 @@ export default {
     noDataText: {
       type: String,
       default: '未找到任何数据！'
-    },
+    }, */
     // ios移动终端输入框是否只读，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来
     iosMobileReadonly: {
       type: Boolean,
       default: true
     },
-    // 是否使用中文显示国籍名称
+    /* // 是否使用中文显示国籍名称
     useChinese: {
       type: Boolean,
       default: false
-    }
+    } */
   },
   data () {
     if (!window._vueCountryIntl_count) {
@@ -181,7 +184,7 @@ export default {
       countryIntlValue: this.value,
       // options: countriesData,
       selected: {},
-      version: '1.0.4',
+      version,
       modalVisible: this.visible
     };
   },

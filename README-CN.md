@@ -1,4 +1,4 @@
-# vue-country-intl
+# 1、vue-country-intl
 基于vue的手机区号选择、国籍选择组件，兼容pc、移动端。`vue-country-intl`有3种模式（
 input、popover、modal）
 
@@ -9,7 +9,7 @@ input、popover、modal）
 ## 效果预览
 [https://941477276.github.io/vue-country-intl/dist/](https://941477276.github.io/vue-country-intl/dist/)
 
-## 同门师兄弟
+## 1.1、同门师兄弟
 >vue版的国籍/手机区号选择插件(`vue-country-intl`)
 + [vue-country-intl](https://github.com/941477276/vue-country-intl)
 >react版的国籍/手机区号选择插件(`reaxt-country-intl`)
@@ -19,10 +19,10 @@ input、popover、modal）
 >基于better-scroll的下拉刷新、上拉加载Vue插件(`vue-scroll-refresh-load`)
 + [vue-scroll-refresh-load](https://github.com/941477276/vue-scroll-refresh-load)
 
-## 安裝
+## 1.2、安裝
 `npm install vue-country-intl --save`
 
-## 使用——.vue单文件
+## 1.3、使用——.vue单文件
 ```
 /*****main.js****/
 import VueCountryIntl from 'vue-country-intl';
@@ -37,7 +37,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 </template>
 ```
 
-## 使用——直接引入js文件
+## 1.4、使用——直接引入js文件
 ```
 <link rel="stylesheet" href="./lib/vue-country-intl.css">
 <script src="./lib/vue-country-intl.min.js"></script>
@@ -49,7 +49,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
   });  
 ```
 
-## schema=input(默认)
+## 1.5、schema=input(默认)
 ```
 <template>
     <VueCountryIntl v-model="phoneCountry"></VueCountryIntl>
@@ -63,7 +63,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 使用中文显示国籍名称
 ![使用中文显示国籍名称](./src/assets/use-chinese.gif)
 
-## schema=popover(popover弹窗式)
+## 1.6、schema=popover(popover弹窗式)
 ```
 <template>
     <button type="button" id="my_reference">选择手机区号</button>
@@ -82,7 +82,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 ![schema=popover效果](./src/assets/schema_popover.gif)
 
-## schema=modal(弹窗)
+## 1.7、schema=modal(弹窗)
 ```
 <template>
     <VueCountryIntl schema="modal" v-model="phoneCountry"></VueCountryIntl>
@@ -92,7 +92,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 ![schema=modal效果](./src/assets/schema_modal.gif)
 
-## props 属性
+## 1.8、props 属性
 1.`schema`: 展示模式
 
 + input: 显示为一个input输入框（默认）
@@ -155,7 +155,7 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 25: `useChinese`: 是否以中文显示国籍名称，默认为`true`（数据类型：Boolean）
 
 
-## 可用方法(method)
+## 1.9、可用方法(method)
 1.`show`: 显示列表
 
 2.`hide`: 隐藏列表
@@ -164,9 +164,59 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 4.`terminal`: 判断是否ios或android终端。返回数据格式：`{android: true, ios: false}`
 
-## slot
+## 1.10、slot
 1.`vueCountryNoData`：未搜索到国家数据时显示的slot
 
-## 事件
-1.`onChange`: 用户手动选择列表项时触发，会传递selected、value给onChange使用
+## 1.11、事件
+1. `onChange`: 用户手动选择列表项时触发，会传递selected、value给onChange使用
+2. `show`: 下拉弹窗显示后触发`(1.1.4新增)`
+3. `hide`: 下拉弹窗隐藏后触发`(1.1.4新增)`
 
+# 2、country-flag
+一个基于vue的国家国旗标志组件
+
+## 效果预览
+![country-flag组件效果](./src/assets/country-flags-effect.png)
+
+## 2.1、安装
+`npm install vue-country-intl --save`
+
+## 1.3、使用
+```
+/*****main.js****/
+import VueCountryFlag from 'vue-country-intl/lib/vue-country-flag.min.js';
+// 引入css
+import 'vue-country-intl/lib/vue-country-flag.css'
+
+// 引入svg图标
+let flagFilePath = require.context('vue-country-intl/lib/country-flag-svgs', true, /\.svg$/);
+Vue.use(VueCountryFlag, flagFilePath);
+
+/*****组件中使用****/
+<template>
+    <VueCountryFlag value="cn"></VueCountryFlag>
+    <VueCountryFlag value="+86">
+      <template v-slot="{country}">
+        <span class="slot-span">国家：<mark>{{country.name}}</mark></span>
+      </template>
+    </VueCountryFlag>
+</template>
+```
+
+## 1.4、props 属性
+1.`value`: 国籍的代码或手机区号值
+
+2.`type`: 值类型
+
++ phone: 表示选择手机区号
++ country: 表示选择国籍
+
+3.`iso2`: 国籍代码，当type=phone时必须传递iso2属性，否则当区号代码为212或358时会出问题！
+
+4.`useTitle`: 是否给元素添加`title`属性，title的值为国籍的代码或手机区号（数据类型：Boolean）
+
+## 1.5、可用方法(method)
+1.`getCountry`: 获取详细的国籍信息
+
+## 1.6、事件
+1.`click`: click 事件
