@@ -5,6 +5,7 @@ node_modules
 .env.local
 .env.*.local
 *.zip
+version.js
 
 # Log files
 npm-debug.log*

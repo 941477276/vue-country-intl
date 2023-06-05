@@ -171,7 +171,9 @@ effect:
 1.`vueCountryNoData`：Slot displayed when country data is not found
 
 ## 1.11 Event
-1.`onChange`: Triggered when the user manually selects a list item, it will pass selected, value to onChange.
+1. `onChange`: Triggered when the user manually selects a list item, it will pass selected, value to onChange.
+2. `show`: Triggered after the drop-down pop-up window is displayed (new in 1.1.4)`
+3. `hide`: Triggered after the drop-down pop-up window is hidden (new in 1.1.4)`
 
 
 

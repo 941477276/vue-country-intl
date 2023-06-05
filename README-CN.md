@@ -168,7 +168,9 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 1.`vueCountryNoData`：未搜索到国家数据时显示的slot
 
 ## 1.11、事件
-1.`onChange`: 用户手动选择列表项时触发，会传递selected、value给onChange使用
+1. `onChange`: 用户手动选择列表项时触发，会传递selected、value给onChange使用
+2. `show`: 下拉弹窗显示后触发`(1.1.4新增)`
+3. `hide`: 下拉弹窗隐藏后触发`(1.1.4新增)`
 
 # 2、country-flag
 一个基于vue的国家国旗标志组件

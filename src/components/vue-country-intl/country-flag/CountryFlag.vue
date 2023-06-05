@@ -7,6 +7,7 @@
 
 <script>
 import {countriesData} from '../data';
+import {version} from '../../../../version';
 
 export default {
   name: "VueCountryFlag",
@@ -62,7 +63,8 @@ export default {
   data(){
     return {
       country: {},
-      svgPathObj: {}
+      svgPathObj: {},
+      version
     }
   },
   methods: {

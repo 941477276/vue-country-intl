@@ -149,6 +149,7 @@ export default {
         this.countryListVisible = true;
       }
       this.modalVisible = true;
+      this.$emit('show');
     },
     hide(){
       let classList = document.body.classList;
@@ -163,6 +164,7 @@ export default {
         }
         this.modalVisible = false;
         this.searchInputText = '';
+        this.$emit('hide');
       }, 100);
     },
     _onCountryChange(newCountry){

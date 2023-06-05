@@ -180,6 +180,7 @@ export default {
         this._calculatePopoverPosition();
         this._calculatePopoverDirection(popoverEle, this._calculatePopoverPosition);
         popoverEle = null;
+        this.$emit('show');
       });
     },
     hide() {
@@ -202,6 +203,7 @@ export default {
         if (popoverEle && popoverEle.style.width) {
           popoverEle.style.width = '';
         }
+        this.$emit('hide');
       }, 300);
     },
     // 计算popover位置

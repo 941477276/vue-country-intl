@@ -3,6 +3,7 @@ import SchemaPopover from './schema-popover/SchemaPopover.vue';
 import SchemaModal from './schema-modal/SchemaModal.vue';
 import {vueCountryTool} from "./vueCountryTool";
 import {countryListProps} from './country-list/country-list-props';
+import { version } from '../../../version';
 
 /*
   {
@@ -183,7 +184,7 @@ export default {
       countryIntlValue: this.value,
       // options: countriesData,
       selected: {},
-      version: '1.0.4',
+      version,
       modalVisible: this.visible
     };
   },
