@@ -1,6 +1,6 @@
 {
   "name": "vue-country-intl",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A vue-based mobile phone area code selection, nationality selection component（一个基于vue的手机区号选择、国籍选择组件）",
   "main": "lib/vue-country-intl.min.js",
   "repository": {
@@ -8,10 +8,11 @@
     "url": "git+https://github.com/941477276/vue-country-intl.git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:countryIntl": "webpack --config webpack.prod.js",
-    "build:countryFlag": "webpack --config webpack.build-country-flag.prod.js",
+    "serve": "npm run generate-version && vue-cli-service serve",
+    "build": "npm run generate-version && vue-cli-service build",
+    "build:countryIntl": "npm run generate-version && webpack --config webpack.prod.js",
+    "build:countryFlag": "npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
+    "generate-version": "node ./generate-version.js",
     "lint": "vue-cli-service lint"
   },
   "keywords": [
