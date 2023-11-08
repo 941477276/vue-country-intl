@@ -154,6 +154,10 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 25: `useChinese`: 是否以中文显示国籍名称，默认为`true`（数据类型：Boolean）
 
+26： `filter`：排序函数，与`Array.filter`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
+
+27： `sort`：排序函数，与`Array.sort`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
+
 
 ## 1.9、可用方法(method)
 1.`show`: 显示列表

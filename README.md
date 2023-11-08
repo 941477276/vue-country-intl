@@ -157,6 +157,10 @@ effect:
 
 26: `useChiness`: Whether to display the nationality name in Chinese, the default is `false`.（data type: Boolean）
 
+30: `filter`: Sorting function, consistent with the callback function in `Array.filter`. Default is `null` (data type: Function) `new in 1.1.5`
+
+31: `sort`: Sorting function, consistent with the callback function in `Array.sort`. Default is `null` (data type: Function) `new in 1.1.5`
+
 
 ## 1.9 Methods(method)
 1.`show`: Display list

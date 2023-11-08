@@ -67,5 +67,15 @@ export const countryListProps = {
   useChinese: {
     type: Boolean,
     default: false
+  },
+  // 排序函数
+  sort: {
+    type: Function,
+    default: null
+  },
+  // 过滤函数
+  filter: {
+    type: Function,
+    default: null
   }
 };

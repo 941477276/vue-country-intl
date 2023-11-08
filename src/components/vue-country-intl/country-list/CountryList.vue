@@ -57,7 +57,7 @@
     computed: {
       countryList () {
         let searchText = this.searchText || '';
-        let countries = countriesData;
+        let countries = [...countriesData];
         let disableCountry = typeof this.disableCountry === 'string' ? this.disableCountry.split(',') : this.disableCountry;
         let onlyCountry = typeof this.onlyCountry === 'string' ? this.onlyCountry.split(',') : this.onlyCountry;
         // 根据国家名称或国家代码或国家区号过滤只显示的国家
@@ -87,6 +87,12 @@
             });
             return index === -1;
           });
+        }
+        if (typeof this.filter == 'function') {
+          countries = countries.filter(this.filter);
+        }
+        if (typeof this.sort == 'function') {
+          countries.sort(this.sort);
         }
         if (!this.searchAble || searchText.length === 0) {
           return countries;
