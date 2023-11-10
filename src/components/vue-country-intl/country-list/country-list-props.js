@@ -77,5 +77,10 @@ export const countryListProps = {
   filter: {
     type: Function,
     default: null
+  },
+  // 数据处理函数，可对列表进行深度定制
+  transform: {
+    type: Function,
+    default: null
   }
 };

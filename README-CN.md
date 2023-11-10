@@ -152,12 +152,13 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 25: `iosMobileReadonly`: ios移动终端输入框是否只读(只在`schema=input`模式下有效)，默认为true，因为在ios手机终端中如不是只读模式会弹出选择下来框出来（数据类型：Boolean）
 
-25: `useChinese`: 是否以中文显示国籍名称，默认为`true`（数据类型：Boolean）
+26: `useChinese`: 是否以中文显示国籍名称，默认为`true`（数据类型：Boolean）
 
-26： `filter`：排序函数，与`Array.filter`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
+27： `filter`：排序函数，与`Array.filter`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
 
-27： `sort`：排序函数，与`Array.sort`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
+28： `sort`：排序函数，与`Array.sort`中的回调函数一致。默认为`null`（数据类型：Function）`1.1.5新增`
 
+29： `transform`：数据处理函数，你可以通过该函数对数据列表进行深度定制，如排序、过滤、置顶等；返回值为处理过后对列表。默认为`null`（数据类型：Function）`1.1.6新增`
 
 ## 1.9、可用方法(method)
 1.`show`: 显示列表

@@ -28,6 +28,7 @@
               :use-chinese="useChinese"
               :sort="sort"
               :filter="filter"
+              :transform="transform"
               @onchange="_onCountryChange"
               @selectedChange="_onSelectedChange">
             <template #vueCountryNoData><slot name="vueCountryNoData"></slot></template>

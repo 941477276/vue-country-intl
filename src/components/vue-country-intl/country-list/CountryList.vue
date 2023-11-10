@@ -94,6 +94,9 @@
         if (typeof this.sort == 'function') {
           countries.sort(this.sort);
         }
+        if (typeof this.transform == 'function') {
+          countries = this.transform(countries);
+        }
         if (!this.searchAble || searchText.length === 0) {
           return countries;
         }
