@@ -160,6 +160,8 @@ Vue.component(VueCountryIntl.name, VueCountryIntl);
 
 29： `transform`：数据处理函数，你可以通过该函数对数据列表进行深度定制，如排序、过滤、置顶等；返回值为处理过后对列表。默认为`null`（数据类型：Function）`1.1.6新增`
 
+30： `clearable`：是否可清空，值为`true`将会显示清空按钮。默认为`false`（数据类型：Boolean）`1.1.7新增`
+
 ## 1.9、可用方法(method)
 1.`show`: 显示列表
 

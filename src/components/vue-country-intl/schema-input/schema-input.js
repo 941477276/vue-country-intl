@@ -106,6 +106,11 @@ export default {
       type: Boolean,
       default: false
     } */
+    // 是否显示清空按钮
+    clearable: {
+      type: Boolean,
+      default: false
+    }
   },
   data(){
     return {
@@ -166,14 +171,14 @@ export default {
         }
         // 如果列表未被渲染过，则自己计算选中的项
         if(!this.countryListDisplay){
-          console.log('列表未被渲染过，自己计算选中的项');
+          // console.log('列表未被渲染过，自己计算选中的项', this.value, this.type, countriesData);
           this.selected = vueCountryTool.calcSelectedOption(this.value, this.type, countriesData);
         }
       }
     },
     // 当前组件的值改变了，则通知父组件，及时改变父组件的值
     schemaInputValue(newVal){
-      //console.log('watch schemaInputValue', newVal)
+      // console.log('watch schemaInputValue', newVal, this.value)
       if(newVal !== this.value){
         this.$emit('input', newVal);
       }
@@ -288,6 +293,15 @@ export default {
       if(!vueCountryTool.elementContains(this.$refs.input_wrap, target)){
         this.hide();
       }
+    },
+    clear () {
+      if (!this.clearable || this.disabled) {
+        return;
+      }
+      this.selected = {};
+      this.schemaInputValue = '';
+      this.$emit('onChange', {});
+      this.$emit('selectedChange', {});
     }
   },
   mounted(){

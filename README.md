@@ -163,6 +163,8 @@ effect:
 
 29: `transform`: Data processing function, you can use this function to deeply customize the data list, such as sorting, filtering, pinning, etc. The return value is a list of processed pairs. Default is `null` (data type: Function) `new in 1.1.6`
 
+30: `clearable`: Whether it can be cleared. If the value is `true`, the clear button will be displayed. The default value is `false` (data type: Boolean) `New in 1.1.7`
+
 ## 1.9 Methods(method)
 1.`show`: Display list
 

@@ -1,6 +1,6 @@
 {
   "name": "vue-country-intl",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A vue-based mobile phone area code selection, nationality selection component（一个基于vue的手机区号选择、国籍选择组件）",
   "main": "lib/vue-country-intl.min.js",
   "repository": {
@@ -8,14 +8,21 @@
     "url": "git+https://github.com/941477276/vue-country-intl.git"
   },
   "scripts": {
-    "serve-windows": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service serve",
-    "serve-mac": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service serve",
-    "build-windows": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service build",
-    "build-mac": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service build",
-    "build:countryIntl-windows": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.prod.js",
-    "build:countryIntl-mac": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.prod.js",
-    "build:countryFlag-windows": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
-    "build:countryFlag-mac": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
+    "serve": "npm run generate-version && vue-cli-service serve",
+    "build": "npm run generate-version && vue-cli-service build",
+    "build:countryIntl": "npm run generate-version && webpack --config webpack.prod.js",
+    "build:countryFlag": "npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
+
+    "serve-windows:20": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service serve",
+    "serve-mac:20": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service serve",
+    "build-windows:20": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service build",
+    "build-mac:20": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && vue-cli-service build",
+    "build:countryIntl-windows:20": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.prod.js",
+    "build:countryIntl-mac:20": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.prod.js",
+    "build:countryFlag-windows:20": "set NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
+    "build:countryFlag-mac:20": "export NODE_OPTIONS=--openssl-legacy-provider && npm run generate-version && webpack --config webpack.build-country-flag.prod.js",
+
+
     "generate-version": "node ./generate-version.js",
     "lint": "vue-cli-service lint"
   },

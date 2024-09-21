@@ -267,6 +267,14 @@
         }
         return index;
       },
+      clear () {
+        this.selected = {};
+        this.currentResult = '';
+        // 实现自定义v-model第二步
+        this.$emit('input', '');
+        // 执行回调
+        this.$emit('onchange', {}, '');
+      }
     },
     mounted() {
       // let cur = this.calcSelectedOption();

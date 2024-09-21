@@ -97,6 +97,28 @@
 .vue-country-disabled .dropdown-flag{
     opacity: .7;
 }
+.vue-country-intl .clear-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    line-height: 42px;
+    height: 100%;
+    border-radius: 5px;
+    transition: color .2s, opacity .2s;
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    opacity: 0;
+    background-color: #fff;
+    &:hover{
+        color: #000;
+    }
+}
+.vue-country-intl:hover .clear-button{
+    opacity: 1;
+}
 .prevent-click{
     display: none;
 }

@@ -124,6 +124,17 @@
         <VueCountryIntl v-model="schemaInput.onlyCountry" only-country="+86,United States,Japan (日本),hk"></VueCountryIntl>
         <h5 class="mt-5">区号：{{schemaInput.onlyCountry || '--'}}</h5>
         <div class="hr"></div>
+
+        <h3 class="mb-10">
+          <div class="pull-left">10、</div>
+          <div class="overflow">
+            <div class="mb-5">可清空</div>
+            <div>clearable</div>
+          </div>
+        </h3>
+        <VueCountryIntl v-model="schemaInput.country10" clearable></VueCountryIntl>
+        <h5 class="mt-5">区号：{{schemaInput.country10 || '--'}}</h5>
+        <div class="hr"></div>
       </div>
 
       <div class="center">
@@ -305,6 +316,7 @@ export default {
         onlyValue: '+86',
         disableCountry: '',
         onlyCountry: '',
+        country10: 86,
         selectedObjDefault: {}
       },
       schemaPopover: {

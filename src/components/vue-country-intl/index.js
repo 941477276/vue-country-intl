@@ -172,6 +172,11 @@ export default {
       type: Boolean,
       default: false
     } */
+    // 是否显示清空按钮
+    clearable: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     if (!window._vueCountryIntl_count) {
