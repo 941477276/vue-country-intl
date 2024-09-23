@@ -112,12 +112,12 @@
     cursor: pointer;
     opacity: 0;
     background-color: #fff;
-    &:hover{
-        color: #000;
-    }
 }
 .vue-country-intl:hover .clear-button{
     opacity: 1;
+}
+.vue-country-intl .clear-button:hover{
+    color: #000;
 }
 .prevent-click{
     display: none;
