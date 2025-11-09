@@ -42,8 +42,8 @@
         // 有些国家的手机区号会有多个值
         if(dialCode == 1 && country.areaCodes){
           let otherEnableCodes = country.areaCodes.slice(0, 5);
-
-          return (country.areaCodes[0] + ` [${otherEnableCodes.join(', ')}]`);
+          otherEnableCodes.unshift(1);
+          return (otherEnableCodes[0] + ` [${otherEnableCodes.join(', ')}]`);
         }
         return dialCode;
       }
@@ -228,11 +228,12 @@
         let result = '';
         if(this.type.toLowerCase() === 'phone'){
           // 一个国家有多个手机区号
-          if(selected.dialCode == 1 && selected.areaCodes) {
+          /* if(selected.dialCode == 1 && selected.areaCodes) {
             result = selected.areaCodes[0];
           }else {
             result = selected.dialCode || '';
-          }
+          } */
+          result = selected.dialCode || '';
         }else{
           result = selected.iso2 || '';
         }
